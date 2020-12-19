@@ -24,46 +24,70 @@
             <!-- /.box-header -->
             <!-- form start -->
             <form role="form" action="{{url('Admin/storeblog')}}">
+              @csrf
               <div class="box-body">
-                <div class="form-group">
-                  <label for="exampleInputEmail1">title</label>
-                  <input type="text" name="title" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputPassword1">type</label>
-                  <input type="text" name="type" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputEmail1">text area</label>
-                  <input type="text" name="description" class="form-control" id="exampleInputEmail1" placeholder="Enter text">
-                </div>
-                
-                <div class="form-group">
-                  <label for="exampleInputFile">File input</label>
-                  <input type="file" name="image" id="exampleInputFile">
-
-                  <p class="help-block">Example block-level help text here.</p>
-                </div>
-                
-              </div>
-              <!-- /.box-body -->
-
-              <div class="box-footer">
-                <button type="submit" class="btn btn-primary">Submit</button>
+                          
+                  <select class="form-control" name="category_id">
+                  <option>Select category</option>
+                    @foreach ($categories as $key => $category)
+                        <option value="{{ $key }}"}}> 
+                            {{ $category->title }} 
+                        </option>
+                    @endforeach 
+                  </select>
+                  <br>
+                  <select class="form-control" name="state_id">
+                  <option>Select State</option>
+                  @foreach ($states as $key => $state)
+                      <option value="{{ $key }}"}}> 
+                          {{ $state->state_name}} 
+                      </option>
+                  @endforeach 
+                  </select>
+                  <br>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Page Title</label>
+                    <input type="text" name="page_title" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                  </div>
+                  
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Page Description</label>
+                    <input type="text" name="page_description" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Page Meta Description</label>
+                    <input type="text" name="page_meta_description" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Page Keywords</label>
+                    <input type="text" name="page_keywords" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                  </div>
+                  
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">BLog title</label>
+                    <input type="text" name="blog_title" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Blog description</label>
+                    <input type="text" name="blog_description" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Blog Posted By</label>
+                    <input type="text" name="posted_by" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputFile">Blog Image</label>
+                    <input type="file" name="blog_image" id="exampleInputFile">
+                  </div>
+                  <div class="box-footer">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                  </div>
+              
               </div>
             </form>
           </div>
-          <!-- /.box -->
-
-         
-
-          
-
         </div>
-        <!--/.col (left) -->
-        <!-- right column -->
         
-        <!--/.col (right) -->
       </div>
       <!-- /.row -->
     </section>

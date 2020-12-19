@@ -30,9 +30,9 @@ Route::get('/Admin/updatestate/{id}','Admin\StateController@update');
 
 //blogController
 
-Route::get('Admin/addblog','Admin\BlogController@index');
-Route::get('Admin/viewblog','Admin\BlogController@show');
-Route::get('Admin/storeblog','Admin\BlogController@store');
+Route::get('/Admin/addblog','Admin\BlogController@index');
+Route::get('/Admin/viewblog','Admin\BlogController@show');
+Route::get('/Admin/storeblog','Admin\BlogController@store');
 
 Route::get('/', function () {
     return view('welcome');

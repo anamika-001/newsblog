@@ -4,97 +4,68 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Blog;
+use App\AddBlog;
+use App\AddCategory;
+use App\AddState;
 
 
 class BlogController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
     public function index(){
-        return view('Admin.blog.addblog');
+        $categories=AddCategory::select('title')->get();
+        $states=AddState::select('state_name')->get();
+        
+        return view('Admin.blog.addblog',compact('categories','states'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create(Request $request)
     { 
+       
+
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+   
     public function store(Request $request)
     {
-        $this->validate($request,
-        [
-        'title'=>'required|min:2|max:20',
-        'type'=>'required',
-        'description'=>'required',
-        'image'=>'required',
-
-        ]);
-
-        $blog = new blog();
-        $blog->title=$request['title'];
-        $blog->type=$request['type'];
-        $blog->description=$request['description'];
-        $blog->image=$request['image'];
+        dd($request->category_id);
+        $categories=AddCategory::select('id')->get();
+        $states=AddState::select('id')->get();
+        $blog=new AddBlog();
+        $blog->category_id=$request->category_id;
+        $blog->state_id=$request->state_id;
+        $blog->page_title=$request->page_title;
+        $blog->page_description=$request->page_description;
+        $blog->page_meta_description=$request->page_meta_description;
+        $blog->page_keywords=$request->page_keywords;
+        $blog->blog_title=$request->blog_title;
+        $blog->blog_description=$request->blog_description;
+        $blog->blog_image=$request->blog_image; 
+        $blog->posted_by=$request->posted_by;
         $blog->save();
-        
-        
+
         return redirect()->back();
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    
     public function show()
     {
         return view('Admin.blog.viewblog');
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    
     public function edit($id)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    
     public function update(Request $request, $id)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    
     public function destroy($id)
     {
         //
