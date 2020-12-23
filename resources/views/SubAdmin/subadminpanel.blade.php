@@ -16,9 +16,9 @@
   <link rel="stylesheet" href="../../dist/css/AdminLTE.min.css">
   
   <link rel="stylesheet" href="../../dist/css/skins/_all-skins.min.css">
-
-   @yield('design')
-
+  <link href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css'>
+  
+  
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
@@ -29,7 +29,7 @@
     <!-- Logo -->
     <a href="#" class="logo">
        <img src="../../dist/img/logo.png" alt="logo" class="img-fluid" style="width:100%;">
-      
+       <!-- <span class="logo-lg"><b>NEWS</b>100</span> -->
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
@@ -55,23 +55,13 @@
           <img src="../../dist/img/admin.png" style='background-color:white;' class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>Admin Panel</p>
+          <p>SubAdmin Panel</p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
      
       <ul class="sidebar-menu" data-widget="tree">
-      <!-- <li class="treeview">
-          <a href="{{url('/SubAdmin/viewlogin')}}">
-          <i class="fa fa-plus-circle" ></i> <span>Add User</span>
-          </a>
-          
-        </li> -->
-        <li class="active">
-        <a href="{{url('/Admin/viewsignin')}}"><i class="fa fa-plus-circle" ></i> <span>Add User</span></a>
-        </li>
-           
-           
+      
 
         <li class="treeview">
           <a href="#">
@@ -80,7 +70,7 @@
           
         </li>
         
-        
+<!--         
         <li class="treeview active">
           <a href="{{url('Admin/addcateg')}}">
             <i class="fa fa-edit"></i> <span>Category</span>
@@ -89,7 +79,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li class="active"><a href="{{url('/Admin/addcategory')}}"><i class="fa fa-circle-o"></i> Add category</a></li>
+            <li class="active"><a href="{{url('Admin/addcategory')}}"><i class="fa fa-circle-o"></i> Add category</a></li>
             <li><a href="{{url('Admin/viewcategory')}}"><i class="fa fa-circle-o"></i> View Category</a></li>
           </ul>
         </li>
@@ -104,7 +94,7 @@
             <li><a href="{{url('Admin/addstate')}}"><i class="fa fa-circle-o"></i> Add State</a></li>
             <li><a href="{{url('Admin/viewstate')}}"><i class="fa fa-circle-o"></i> View state</a></li>
           </ul>
-        </li>
+        </li> -->
         <li class="treeview active">
           <a href="#">
             <i class="fa fa-table"></i> <span>Blogs</span>
@@ -113,21 +103,17 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="{{url('Admin/addblog')}}"><i class="fa fa-circle-o"></i> Add Blog</a></li>
-            <li><a href="{{url('Admin/viewblog')}}"><i class="fa fa-circle-o"></i> View state</a></li>
+            <li><a href="{{url('SubAdmin/Blog/addblog')}}"><i class="fa fa-circle-o"></i> Add Blog</a></li>
+            <li><a href="{{url('SubAdmin/Blog/viewblog')}}"><i class="fa fa-circle-o"></i> View state</a></li>
           </ul>
         </li>
-        
-       
-        <li><a href="https://adminlte.io/docs"><i class="fa fa-book"></i> <span>Documentation</span></a></li>
-
         <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                    user <span class="caret"></span>
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="javascript:void();"
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
@@ -138,7 +124,6 @@
                                     </form>
                                 </div>
                             </li>
-        
       </ul>
     </section>
     <!-- /.sidebar -->
@@ -184,5 +169,8 @@
 <script src="../../dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="../../dist/js/demo.js"></script>
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+<script src='https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js'></script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-@extends('Admin.adminpanel')
+@extends('SubAdmin.subadminpanel')
 
 @section('content')
 
@@ -31,7 +31,7 @@
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form role="form" action="{{action('Admin\BlogController@update',[$blogs->id])}}" enctype="multipart/form-data" method="post">
+            <form role="form" action="{{action('Admin\BlogController@update',[$blogs->id])}}">
               @csrf
               <div class="box-body">
                           
@@ -85,7 +85,7 @@
                   </div>
                   <div class="form-group">
                     <label for="exampleInputFile">Blog Image</label>
-                    <input type="file" src="{{asset($blogs->blog_image)}}" name="blog_image" id="exampleInputFile">
+                    <input type="file" value="{{$blogs->blog_image}}" name="blog_image" id="exampleInputFile">
                   </div>
                   <div class="box-footer">
                     <button type="submit" class="btn btn-primary">Submit</button>

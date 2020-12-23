@@ -7,7 +7,7 @@
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
         <li><a href="#">Category</a></li>
-        <li class="active">Add Category</li>
+        <li class="active">Edit Category</li>
       </ol>
     </section>
 

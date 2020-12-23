@@ -21,16 +21,25 @@
             <div class="box-header with-border">
               <h3 class="box-title">Add Category</h3>
             </div>
+            @if(Session::has('success'))
+            <div class="alert alert-success">
+                {{ Session::get('success') }}
+                @php
+                Session::forget('success');
+                @endphp
+            </div>
+            @endif
             <!-- /.box-header -->
             <!-- form start -->
-            <form role="form" action="{{url('Admin/storeblog')}}">
-              @csrf
+            <form role="form" action="{{url('Admin/storeblog')}}" enctype="multipart/form-data" method="post">
+            
+           @csrf
               <div class="box-body">
                           
                   <select class="form-control" name="category_id">
                   <option>Select category</option>
                     @foreach ($categories as $key => $category)
-                        <option value="{{ $key }}"}}> 
+                        <option value="{{ $category->id }}"}}> 
                             {{ $category->title }} 
                         </option>
                     @endforeach 
@@ -38,8 +47,8 @@
                   <br>
                   <select class="form-control" name="state_id">
                   <option>Select State</option>
-                  @foreach ($states as $key => $state)
-                      <option value="{{ $key }}"}}> 
+                  @foreach ($states as  $state)
+                      <option value="{{ $state->id }}"}}> 
                           {{ $state->state_name}} 
                       </option>
                   @endforeach 
@@ -76,8 +85,12 @@
                     <input type="text" name="posted_by" class="form-control" id="exampleInputPassword1" placeholder="Password">
                   </div>
                   <div class="form-group">
+                    <label for="exampleInputPassword1">Blog Tags</label>
+                    <input type="text" value="Amsterdam,Washington,Sydney,Beijing,Cairo" data-role="tagsinput" name="blog_tags" />
+                  </div>
+                  <div class="form-group">
                     <label for="exampleInputFile">Blog Image</label>
-                    <input type="file" name="blog_image" id="exampleInputFile">
+                    <input type="file" class="form-control" accept="image/*" name="blog_image" class="form-control-file" value="Upload"/>
                   </div>
                   <div class="box-footer">
                     <button type="submit" class="btn btn-primary">Submit</button>

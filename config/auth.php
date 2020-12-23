@@ -40,6 +40,10 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+        'subadmin'=>[
+            'driver' =>'session',
+            'provider' =>'subadmins',
+        ],
 
         'api' => [
             'driver' => 'token',
@@ -68,6 +72,10 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\User::class,
+        ],
+        'subadmins' => [
+            'driver' => 'eloquent',
+            'model' => App\SubAdmin::class,
         ],
 
         // 'users' => [
