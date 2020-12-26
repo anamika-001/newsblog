@@ -19,18 +19,39 @@ use App\Http\Controllers\Admin\BlogController;
 Route::get('/SubAdmin/viewlogin','SubAdmin\SubadminController@viewlogin');
 
 
-Route::get('/SubAdmin/viewlogin', 'Auth\LoginController@showsubAdminLoginForm');
-Route::get('/SubAdmin/subadminLogin', 'Auth\LoginController@subadminLogin');
-Route::get('/SubAdmin/Subadminpanel','Auth\LoginController@showsubadminpanel');
+
+// Route::get('/SubAdmin/Subadminpanel','Auth\LoginController@showsubadminpanel');
 
 
 
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/index', function () {
+    return view('news_web.index');
 });
-// Route::get('/Admin/logout','Admin\AdminController@logout');
+Route::get('/about_us', function () {
+    return view('news_web.about_us');
+});
+Route::get('/anchor_profile', function () {
+    return view('news_web.anchor_profile');
+});
+Route::get('/privacy_policy', function () {
+    return view('news_web.privacy_policy');
+});
+Route::get('/terms_conditions', function () {
+    return view('news_web.terms_conditions');
+});
+Route::get('/advertise_with_us', function () {
+    return view('news_web.advertise_with_us');
+});
+Route::get('/contact_us', function () {
+    return view('news_web.contact_us');
+});
+Route::get('/category', function () {
+    return view('news_web.category');
+});
 
+// Route::get('/Admin/logout','Admin\AdminController@logout');
+//news
 
 Route::group(['middleware' => 'auth'], function () {
     
@@ -59,8 +80,13 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/Admin/editblog/{id}','Admin\BlogController@edit');
     Route::post('/Admin/updateblog/{id}','Admin\BlogController@update');
     
-    
-
+    //videocontroller
+    Route::get('/Admin/addvideo','Admin\VideoController@index');
+    Route::get('/Admin/viewvideo','Admin\VideoController@show');
+    Route::get('/Admin/storevideo','Admin\VideoController@store');
+    Route::get('/Admin/destroyvideo/{id}','Admin\VideoController@destroy');
+    Route::get('/Admin/editvideo/{id}','Admin\VideoController@edit');
+    Route::get('/Admin/updatevideo/{id}','Admin\VideoController@update');
     //admincontroller
     Route::get('/Admin/viewsignin','Admin\AdminController@viewsignin');
     Route::post('/Admin/Adduser','Admin\AdminController@adduser');
@@ -73,6 +99,14 @@ Route::group(['middleware' => 'auth'], function () {
     // Route::get('/SubAdmin/viewlogin','SubAdmin\SubadminController@viewlogin');
     // Route::get('/SubAdmin/login','SubAdmin\SubadminController@login');
  });
+ Route::get('/SubAdmin/viewlogin', 'Auth\LoginController@showsubAdminLoginForm');
+ Route::group(['middleware' => 'subadmin'], function () {
+    
+    Route::get('/SubAdmin/subadminLogin', 'Auth\LoginController@subadminLogin');
+    Route::get('/SubAdmin/Subadminpanel','Auth\LoginController@showsubadminpanel')->middleware('subadmin');
+ });
 Auth::routes();
+
+
 
 Route::get('/home', 'HomeController@index')->name('home');

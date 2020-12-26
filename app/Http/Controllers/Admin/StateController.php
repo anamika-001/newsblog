@@ -15,17 +15,17 @@ class StateController extends Controller
 
    
     public function store(Request $request)
-    {
+    { 
         $this->validate($request,
         [
         'state_name'=>'required|min:2|max:20',
         'description'=>'required',
         ]);
 
-        $addcstate = new AddState();
-        $addcstate->state_name=$request['state_name'];
-        $addcstate->description=$request['description'];
-        $addcstate->save();
+        $addstate = new AddState();
+        $addstate->state_name=$request['state_name'];
+        $addstate->description=$request['description'];
+        $addstate->save();
         return redirect()->back();
     }
 

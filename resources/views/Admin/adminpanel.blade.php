@@ -16,8 +16,10 @@
   <link rel="stylesheet" href="../../dist/css/AdminLTE.min.css">
   
   <link rel="stylesheet" href="../../dist/css/skins/_all-skins.min.css">
-
-   @yield('design')
+  <!-- tags -->
+  <link rel="stylesheet" href="src/jquery.tagsinput-revisited.css">
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+   @yield('stylesheets')
 
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
@@ -117,6 +119,18 @@
             <li><a href="{{url('Admin/viewblog')}}"><i class="fa fa-circle-o"></i> View state</a></li>
           </ul>
         </li>
+        <li class="treeview active">
+          <a href="{{url('Admin/addcateg')}}">
+            <i class="fa fa-edit"></i> <span>Video</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li class="active"><a href="{{url('/Admin/addvideo')}}"><i class="fa fa-circle-o"></i> Add video</a></li>
+            <li><a href="{{url('/Admin/viewvideo')}}"><i class="fa fa-circle-o"></i> View video</a></li>
+          </ul>
+        </li>
         
        
         <li><a href="https://adminlte.io/docs"><i class="fa fa-book"></i> <span>Documentation</span></a></li>
@@ -182,7 +196,15 @@
 <script src="../../bower_components/fastclick/lib/fastclick.js"></script>
 <!-- AdminLTE App -->
 <script src="../../dist/js/adminlte.min.js"></script>
+
+<!-- tags -->
+<!-- <script src="/path/to/jquery.min.js"></script> -->
+<script src="src/jquery.tagsinput-revisited.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+
 <!-- AdminLTE for demo purposes -->
 <script src="../../dist/js/demo.js"></script>
+@yield('scripts');
+ 
 </body>
 </html>

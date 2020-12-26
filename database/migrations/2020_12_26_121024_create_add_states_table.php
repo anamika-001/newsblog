@@ -16,7 +16,7 @@ class CreateAddStatesTable extends Migration
         Schema::create('add_states', function (Blueprint $table) {
             $table->increments('id');
             $table->string('state_name');
-            $table->text('description');
+            $table->text('description')->nullable();
             $table->timestamps();
         });
     }

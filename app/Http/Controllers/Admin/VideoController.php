@@ -4,12 +4,12 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\AddCategory;
+use App\Video;
 
-class CategoryController extends Controller
+class VideoController extends Controller
 {
     public function index(){
-        return view('Admin.category.addcategory');
+        return view('Admin.video.addvideo');
     }
 
     public function store(Request $request)
@@ -17,28 +17,28 @@ class CategoryController extends Controller
         
         $this->validate($request,
         [
-        'title'=>'required|min:2|max:20',
+        'video_title'=>'required|min:2|max:20',
        
         ]);
-
-        $addcategory = new AddCategory();
-        $addcategory->title=$request['title'];
-        $addcategory->description=$request['description'];
-        $addcategory->save();
+        
+        $addvideo = new Video();
+        $addvideo->video_title=$request->video_title;
+        $addvideo->video_link=$request->video_link;
+        $addvideo->save();
         return redirect()->back();
     }
 
 
     public function show()
     {
-        $categories=AddCategory::all();
-        return view('Admin.category.viewCategory',['categories'=>$categories]);
+        $videos=Video::all();
+        return view('Admin.video.viewvideo',['videos'=>$videos]);
         
     }
     public function edit($id)
     {
-        $categories=AddCategory::where('id',  '=', $id)->first();
-        return view('Admin.category.editcategory',['categories'=>$categories]);
+        $videos=Video::where('id',  '=', $id)->first();
+        return view('Admin.video.editvideo',['videos'=>$videos]);
         
     }
 
@@ -52,9 +52,9 @@ class CategoryController extends Controller
     public function update(Request $request, $id)
     {
         
-        AddCategory::where('id', '=', $id)->update([
-        'title' => $request->title??'',
-        'description' => $request->description??''
+       Video::where('id', '=', $id)->update([
+        'video_title' => $request->video_title??'',
+        'video_link' => $request->video_link??''
          ]);
          return redirect()->back()->with('message', 'Updated Successfully');
     }
@@ -62,10 +62,9 @@ class CategoryController extends Controller
     
     public function destroy($id) {
         
-        $data =AddCategory::where('id','=',$id)->delete();
+        $data =addvideo::where('id','=',$id)->delete();
         if($data){
             return redirect()->back()->with('message', 'Deleted Successfully');
         }
     }
-
 }

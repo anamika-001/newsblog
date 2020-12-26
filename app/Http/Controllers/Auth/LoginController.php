@@ -49,15 +49,33 @@ class LoginController extends Controller
 
     public function subadminLogin(Request $request)
     {
-        $this->validate($request, [
-            'email'   => 'required|email',
-            'password' => 'required|min:6'
-        ]);
-
-        if (Auth::guard('subadmin')->attempt(['email' => $request->email, 'password' => $request->password], $request->get('remember'))) {
-
-            return redirect()->intended('/subadmin');
-        }
+      
+        $rules = array(
+            'email' => 'required|email', 
+            'password' => 'required|alphaNum|min:8'
+        );
+          
+     $validator = Validator::make(Input::all() , $rules);
+            
+            if ($validator->fails())
+              {
+              return Redirect::back()->withErrors($validator) 
+              ->withInput(Input::except('password')); 
+              }
+              else
+              {
+                $details=User::where('email',$request->email)->where('password',$request->password)->first(); 
+                
+                
+                    if (Auth::attempt($details)){
+                       
+                        return  view('SubAdmin.subadminpanel');
+                    }
+                    else {      
+                        return  view('SubAdmin.login');
+                        // return redirect()->back()->with('errors','user added successfully.');
+                    }
+                }
         return back()->withInput($request->only('email', 'remember'));
     }
     public function showsubadminpanel(){

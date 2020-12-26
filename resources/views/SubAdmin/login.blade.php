@@ -31,7 +31,7 @@
   <div class=" text-center"><h3><strong>Sub Admin Login</strong></h3></div>
   <div class="login-box-body">
   
-    <form action="{{url('SubAdmin/login')}}">
+    <form action="{{url('/SubAdmin/subadminLogin')}}">
 	@csrf
 	@if(Session::has('success'))
             <div class="alert alert-success">

@@ -1,4 +1,8 @@
 @extends('Admin.adminpanel')
+@section('stylesheets')
+
+<link rel="stylesheet" href="css/select2.min.css">
+@endsection
 
 @section('content')
 
@@ -85,8 +89,11 @@
                     <input type="text" name="posted_by" class="form-control" id="exampleInputPassword1" placeholder="Password">
                   </div>
                   <div class="form-group">
-                    <label for="exampleInputPassword1">Blog Tags</label>
-                    <input type="text" value="Amsterdam,Washington,Sydney,Beijing,Cairo" data-role="tagsinput" name="blog_tags" />
+                  <select class="js-example-basic-multiple" name="states[]" multiple="multiple">
+  <option value="AL">Alabama</option>
+    ...
+  <option value="WY">Wyoming</option>
+</select>
                   </div>
                   <div class="form-group">
                     <label for="exampleInputFile">Blog Image</label>
@@ -105,4 +112,14 @@
       <!-- /.row -->
     </section>
 
+@endsection
+
+@section('scripts')
+
+<script src="js/select2.min.js"></script>
+<script>
+$(document).ready(function() {
+    $('.js-example-basic-multiple').select2();
+});
+</script>
 @endsection
