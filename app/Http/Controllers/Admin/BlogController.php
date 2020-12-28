@@ -14,14 +14,6 @@ use Illuminate\Support\Facades\Input;
 
 class BlogController extends Controller
 {
-    
-    // public function index(){
-    //     $categories=AddCategory::select('title')->get();
-    //     $states=AddState::select('state_name')->get();
-        
-    //     return view('Admin.blog.addblog',compact('categories','states'));
-    // }
-
     public function create(Request $request)
     { 
         $categories=AddCategory::select('id','title')->get();

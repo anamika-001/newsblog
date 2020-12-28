@@ -1,34 +1,34 @@
 <?php
 
-namespace App\Http\Controllers\SubAdmin;
+namespace App\Http\Controllers\Manager;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Validator;
 use App\User;
 
-class SubadminController extends Controller
+class ManagerLoginContoller extends Controller
 {
     public function viewlogin(){
-        return view('SubAdmin.login');
+        return view('ManagerPanel.managerlogin');
     }
     public function login(Request $request){
       
         $validator=Validator::make($request -> input(),[
-            
             'email'=>'required',
             'password'=>'required'
-
-        ]);
+            ]);
 
         if($validator->fails()){
+            
             return redirect()->back()->with('message','field is required');
         }else{
-            $email=User::where('email',$request->email)->first();
+           
+            $email=User::where('email',$request->email)->where('user_type','manager')->first();
             if($email){
-                $password=User::where('password',$request->password)-first();
+                $password=User::where('password',$request->password)->first();
                 if($password){
-                    view('SubAdmin/subadminpanel');
+                  return view('ManagerPanel.managerpanel');
                 }
                 else{
                     return redirect()->back()->with('error','password incorrect');
@@ -40,6 +40,4 @@ class SubadminController extends Controller
 
         }
     }
-
-   
 }

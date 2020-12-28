@@ -25,7 +25,7 @@ class CategoryController extends Controller
         $addcategory->title=$request['title'];
         $addcategory->description=$request['description'];
         $addcategory->save();
-        return redirect()->back();
+        return redirect()->back()->with('success','category created successfully.');;
     }
 
 
@@ -56,7 +56,7 @@ class CategoryController extends Controller
         'title' => $request->title??'',
         'description' => $request->description??''
          ]);
-         return redirect()->back()->with('message', 'Updated Successfully');
+         return redirect()->back()->with('success', 'Updated Successfully');
     }
 
     
@@ -64,7 +64,7 @@ class CategoryController extends Controller
         
         $data =AddCategory::where('id','=',$id)->delete();
         if($data){
-            return redirect()->back()->with('message', 'Deleted Successfully');
+            return redirect()->back()->with('success', 'Deleted Successfully');
         }
     }
 

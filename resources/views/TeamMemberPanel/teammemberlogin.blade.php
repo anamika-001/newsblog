@@ -28,10 +28,10 @@
     </a>
   </div>
   <!-- /.login-logo -->
-  <div class=" text-center"><h3><strong>Sub Admin Login</strong></h3></div>
+  <div class=" text-center"><h3><strong>Team Member Login</strong></h3></div>
   <div class="login-box-body">
   
-    <form action="{{url('/SubAdmin/subadminLogin')}}">
+    <form action="{{url('/TeamMemberLogin/login')}}">
 	@csrf
 	@if(Session::has('success'))
             <div class="alert alert-success">
@@ -43,11 +43,11 @@
             @endif
 	
       <div class="form-group has-feedback">
-        <input type="email" class="form-control" placeholder="Email">
+        <input type="email" class="form-control" name="email" placeholder="Email">
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
-        <input type="password" class="form-control" placeholder="Password">
+        <input type="password" class="form-control" name="password" placeholder="Password">
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
       <div class="row">

@@ -24,7 +24,7 @@ Route::get('/SubAdmin/viewlogin','SubAdmin\SubadminController@viewlogin');
 
 
 
-
+//news_web
 Route::get('/index', function () {
     return view('news_web.index');
 });
@@ -49,12 +49,30 @@ Route::get('/contact_us', function () {
 Route::get('/category', function () {
     return view('news_web.category');
 });
+//ManagerPanel
+Route::get('/ManagerLogin/viewlogin','Manager\ManagerLoginContoller@viewlogin');
+ Route::get('/ManagerLogin/login','Manager\ManagerLoginContoller@login');
 
-// Route::get('/Admin/logout','Admin\AdminController@logout');
-//news
+//teammemberPanel
+Route::get('/TeamMemberLogin/viewlogin','TeamMember\TeamMemberLoginContoller@viewlogin');
+Route::get('/TeamMemberLogin/login','TeamMember\TeamMemberLoginContoller@login');
 
 Route::group(['middleware' => 'auth'], function () {
-    
+    //mangercontroller
+    Route::get('/Admin/viewmanager','Admin\ManagerController@index');
+    Route::get('/Admin/createmanager','Admin\ManagerController@create');
+    Route::post('/Admin/storemanager','Admin\ManagerController@store');
+    Route::get('/Admin/destroymanager/{id}','Admin\ManagerController@destroy');
+    // Route::get('/Admin/editmanager/{id}','Admin\ManagerController@edit');
+    // Route::patch('/Admin/updatemanager/{id}','Admin\ManagerController@update');
+    //teammembercontroller
+    Route::get('/Admin/viewteammember','Admin\TeamMemberController@index');
+    Route::get('/Admin/createteammember','Admin\TeamMemberController@create');
+    Route::post('/Admin/storeteammember','Admin\TeamMemberController@store');
+    Route::get('/Admin/destroyteammember/{id}','Admin\TeamMemberController@destroy');
+    // Route::get('/Admin/editteammember/{id}','Admin\TeamMemberController@edit');
+    // Route::patch('/Admin/updateteammember/{id}','Admin\TeamMemberController@update');
+
     //categoryController
     Route::get('/Admin/addcategory','Admin\CategoryController@index');
     Route::get('/Admin/viewcategory','Admin\CategoryController@show');
@@ -87,6 +105,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/Admin/destroyvideo/{id}','Admin\VideoController@destroy');
     Route::get('/Admin/editvideo/{id}','Admin\VideoController@edit');
     Route::get('/Admin/updatevideo/{id}','Admin\VideoController@update');
+
     //admincontroller
     Route::get('/Admin/viewsignin','Admin\AdminController@viewsignin');
     Route::post('/Admin/Adduser','Admin\AdminController@adduser');
@@ -95,16 +114,15 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/Admin/adminlogin','Admin\AdminController@adminlogin');
     Route::get('/Admin/adminpanel','Admin\AdminController@adminpanel');
 
-    //subadminController
-    // Route::get('/SubAdmin/viewlogin','SubAdmin\SubadminController@viewlogin');
-    // Route::get('/SubAdmin/login','SubAdmin\SubadminController@login');
  });
- Route::get('/SubAdmin/viewlogin', 'Auth\LoginController@showsubAdminLoginForm');
- Route::group(['middleware' => 'subadmin'], function () {
-    
-    Route::get('/SubAdmin/subadminLogin', 'Auth\LoginController@subadminLogin');
-    Route::get('/SubAdmin/Subadminpanel','Auth\LoginController@showsubadminpanel')->middleware('subadmin');
- });
+
+
+ 
+//  Route::group(['middleware' => 'subadmin'], function () {
+//    //ManagerPanel
+
+
+//  });
 Auth::routes();
 
 

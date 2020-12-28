@@ -21,6 +21,14 @@
             <div class="box-header with-border">
               <h3 class="box-title">Edit Category</h3>
             </div>
+            @if(Session::has('success'))
+            <div class="alert alert-success">
+                {{ Session::get('success') }}
+                @php
+                Session::forget('success');
+                @endphp
+            </div>
+            @endif
             <!-- /.box-header -->
             <!-- form start -->
             <form role="form" metod="Post" action="{{action('Admin\CategoryController@update',[$categories->id])}}" class="form-inline">

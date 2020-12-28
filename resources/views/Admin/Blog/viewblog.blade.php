@@ -2,6 +2,14 @@
 
 @section('content')
 <table class="table">
+@if(Session::has('success'))
+            <div class="alert alert-success">
+                {{ Session::get('success') }}
+                @php
+                Session::forget('success');
+                @endphp
+            </div>
+            @endif
   <thead class="thead-dark">
     <tr>
       <th scope="col">S.No.</th>

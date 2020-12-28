@@ -26,7 +26,7 @@ class StateController extends Controller
         $addstate->state_name=$request['state_name'];
         $addstate->description=$request['description'];
         $addstate->save();
-        return redirect()->back();
+        return redirect()->back()->with('success', 'created Successfully');;
     }
 
     public function show()
@@ -49,14 +49,14 @@ class StateController extends Controller
             'state_name' => $request->state_name??'',
             'description' => $request->description??''
              ]);
-             return redirect()->back()->with('message', 'Updated Successfully');
+             return redirect()->back()->with('success', 'Updated Successfully');
     }
 
     public function destroy($id) {
        
         $data =AddState::where('id','=',$id)->delete();
         if($data){
-            return redirect()->back()->with('message', 'Deleted Successfully');
+            return redirect()->back()->with('success', 'Deleted Successfully');
         }
     }
 

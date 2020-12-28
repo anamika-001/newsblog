@@ -7,7 +7,7 @@
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
         <li><a href="#">Category</a></li>
-        <li class="active">Add Category</li>
+        <li class="active">Add States</li>
       </ol>
     </section>
 
@@ -19,8 +19,16 @@
           <!-- general form elements -->
           <div class="box box-primary">
             <div class="box-header with-border">
-              <h3 class="box-title">Add Category</h3>
+              <h3 class="box-title">Add States</h3>
             </div>
+            @if(Session::has('success'))
+            <div class="alert alert-success">
+                {{ Session::get('success') }}
+                @php
+                Session::forget('success');
+                @endphp
+            </div>
+            @endif
             <!-- /.box-header -->
             <!-- form start -->
             <form role="form" action="{{url('Admin/storestate')}}" class="form-inline">

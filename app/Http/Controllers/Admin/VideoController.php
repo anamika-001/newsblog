@@ -25,19 +25,21 @@ class VideoController extends Controller
         $addvideo->video_title=$request->video_title;
         $addvideo->video_link=$request->video_link;
         $addvideo->save();
-        return redirect()->back();
+        return redirect()->back()->with('success', 'Created Successfully');;
     }
 
 
     public function show()
     {
         $videos=Video::all();
+        
         return view('Admin.video.viewvideo',['videos'=>$videos]);
         
     }
     public function edit($id)
     {
         $videos=Video::where('id',  '=', $id)->first();
+        
         return view('Admin.video.editvideo',['videos'=>$videos]);
         
     }
@@ -53,18 +55,18 @@ class VideoController extends Controller
     {
         
        Video::where('id', '=', $id)->update([
-        'video_title' => $request->video_title??'',
-        'video_link' => $request->video_link??''
+        'Video_title' => $request->video_title??'',
+        'Video_link' => $request->video_link??''
          ]);
-         return redirect()->back()->with('message', 'Updated Successfully');
+         return redirect()->back()->with('success', 'Updated Successfully');
     }
 
     
     public function destroy($id) {
         
-        $data =addvideo::where('id','=',$id)->delete();
+        $data =Video::where('id','=',$id)->delete();
         if($data){
-            return redirect()->back()->with('message', 'Deleted Successfully');
+            return redirect()->back()->with('success', 'Deleted Successfully');
         }
     }
 }

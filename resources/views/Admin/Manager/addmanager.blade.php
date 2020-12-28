@@ -13,9 +13,9 @@
     </a>
   </div>
   <!-- /.login-logo -->
-  <div class=" text-center"><h3><strong>Add New User</strong></h3></div>
+  <div class=" text-center"><h3><strong>Add Manager</strong></h3></div>
   <div class="login-box-body">
-    <form action="{{url('Admin/Adduser')}}" method="post">
+    <form action="{{url('/Admin/storemanager')}}" method="POST">
         @csrf
         @if(Session::has('success'))
             <div class="alert alert-success">
@@ -26,7 +26,7 @@
             </div>
             @endif
         <div class="form-group has-feedback">
-            <input type="text" class="form-control" name="name" placeholder="user name">
+            <input type="text" class="form-control" name="name" placeholder="Manager name">
             <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
         </div>
         <div class="form-group has-feedback">
@@ -39,8 +39,8 @@
         </div>
         <div class="row">
             <!-- /.col -->
-            <div class="col-xs-4">
-            <button type="submit" class="btn btn-primary btn-block btn-flat">Add User</button>
+            <div class="col-xs-5">
+            <button type="submit" class="btn btn-primary btn-block btn-flat">Add Manager</button>
             </div>
             <!-- /.col -->
         </div>

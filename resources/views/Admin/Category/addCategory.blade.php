@@ -21,6 +21,14 @@
             <div class="box-header with-border">
               <h3 class="box-title">Add Category</h3>
             </div>
+            @if(Session::has('success'))
+            <div class="alert alert-success">
+                {{ Session::get('success') }}
+                @php
+                Session::forget('success');
+                @endphp
+            </div>
+            @endif
             <!-- /.box-header -->
             <!-- form start -->
             <form role="form" action="{{url('Admin/storecategory')}}" class="form-inline">

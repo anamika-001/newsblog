@@ -7,7 +7,7 @@
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
         <li><a href="#">Video</a></li>
-        <li class="active">Add Video </li>
+        <li class="active">Edit Video </li>
       </ol>
     </section>
 
@@ -19,20 +19,28 @@
           <!-- general form elements -->
           <div class="box box-primary">
             <div class="box-header with-border">
-              <h3 class="box-title">Add Video</h3>
+              <h3 class="box-title">Edit Video</h3>
             </div>
+            @if(Session::has('success'))
+            <div class="alert alert-success">
+                {{ Session::get('success') }}
+                @php
+                Session::forget('success');
+                @endphp
+            </div>
+            @endif
             <!-- /.box-header -->
             <!-- form start -->
-            <form role="form" action="{{action('Admin\VideoController@update',[$Videos->id])}}" class="form-inline">
+            <form role="form" action="{{action('Admin\VideoController@update',[$videos->id])}}" class="form-inline">
               <div class="box-body" >
                 <div class="form-group" style="padding:10px;">
                   <label for="exampleInputEmail1">Video Title</label>
-                  <input type="text" name="video_title" class="form-control" id="exampleInputEmail1" placeholder="Enter Category">
+                  <input type="text" value="{{$videos->Video_title}}" name="video_title" class="form-control" id="exampleInputEmail1" placeholder="Enter Category">
                 </div>
                
                 <div class="form-group" style="padding:10px;">
                   <label for="exampleInputEmail1">Video Link</label>
-                  <input type="text" name="video_link" class="form-control" id="exampleInputEmail1" placeholder="Enter text">
+                  <input type="text" value="{{$videos->Video_link}}" name="video_link" class="form-control" id="exampleInputEmail1" placeholder="Enter text">
                 </div>
                </div>
               <!-- /.box-body -->

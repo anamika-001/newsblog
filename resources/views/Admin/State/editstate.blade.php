@@ -6,8 +6,8 @@
     <section>  
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="#">Category</a></li>
-        <li class="active">Edit Category</li>
+        <li><a href="#">States</a></li>
+        <li class="active">Edit States</li>
       </ol>
     </section>
 
@@ -19,8 +19,16 @@
           <!-- general form elements -->
           <div class="box box-primary">
             <div class="box-header with-border">
-              <h3 class="box-title">Edit Category</h3>
+              <h3 class="box-title">Edit states</h3>
             </div>
+            @if(Session::has('success'))
+            <div class="alert alert-success">
+                {{ Session::get('success') }}
+                @php
+                Session::forget('success');
+                @endphp
+            </div>
+            @endif
             <!-- /.box-header -->
             <!-- form start -->
             <form role="form" action="{{action('Admin\StateController@update',[$details->id])}}" class="form-inline">
