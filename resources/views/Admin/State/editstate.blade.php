@@ -36,12 +36,12 @@
               <div class="box-body" >
                 <div class="form-group" style="padding:10px;">
                   <label for="exampleInputEmail1">State Name</label>
-                  <input type="text" value="{{$details->state_name}}" name="state_name" class="form-control" id="exampleInputEmail1" placeholder="Enter state">
+                  <input type="text" value="{{$details->state_name}}" name="state_name" class="form-control" id="exampleInputEmail1" >>
                 </div>
                
                 <div class="form-group" style="padding:10px;">
                   <label for="exampleInputEmail1">Description</label>
-                  <input type="text" value="{{$details->description}}" name="description" class="form-control" id="exampleInputEmail1" placeholder="Enter text">
+                  <input type="text" value="{{$details->description}}" name="description" class="form-control" id="exampleInputEmail1" >
                 </div>
                </div>
               <!-- /.box-body -->

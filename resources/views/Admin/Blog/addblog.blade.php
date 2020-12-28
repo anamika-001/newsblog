@@ -60,41 +60,34 @@
                   <br>
                   <div class="form-group">
                     <label for="exampleInputEmail1">Page Title</label>
-                    <input type="text" name="page_title" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                    <input type="text" name="page_title" class="form-control" id="exampleInputEmail1" >
                   </div>
                   
                   <div class="form-group">
                     <label for="exampleInputEmail1">Page Description</label>
-                    <input type="text" name="page_description" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                    <input type="text" name="page_description" class="form-control" id="exampleInputEmail1" >
                   </div>
                   <div class="form-group">
                     <label for="exampleInputEmail1">Page Meta Description</label>
-                    <input type="text" name="page_meta_description" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                    <input type="text" name="page_meta_description" class="form-control" id="exampleInputEmail1" >
                   </div>
                   <div class="form-group">
                     <label for="exampleInputEmail1">Page Keywords</label>
-                    <input type="text" name="page_keywords" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                    <input type="text" name="page_keywords" class="form-control" id="exampleInputEmail1" >
                   </div>
                   
                   <div class="form-group">
                     <label for="exampleInputEmail1">BLog title</label>
-                    <input type="text" name="blog_title" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                    <input type="text" name="blog_title" class="form-control" id="exampleInputEmail1" >
                   </div>
                   <div class="form-group">
                     <label for="exampleInputEmail1">Blog description</label>
-                    <input type="text" name="blog_description" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                    <input type="text" name="blog_description" class="form-control" id="exampleInputEmail1" >
                   </div>
                   <div class="form-group">
                     <label for="exampleInputPassword1">Blog Posted By</label>
-                    <input type="text" name="posted_by" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                  </div>
-                  <div class="form-group">
-                  <select class="js-example-basic-multiple" name="states[]" multiple="multiple">
-  <option value="AL">Alabama</option>
-    ...
-  <option value="WY">Wyoming</option>
-</select>
-                  </div>
+                    <input type="text" name="posted_by" class="form-control" id="exampleInputPassword1"                  </div>
+                  
                   <div class="form-group">
                     <label for="exampleInputFile">Blog Image</label>
                     <input type="file" class="form-control" accept="image/*" name="blog_image" class="form-control-file" value="Upload"/>

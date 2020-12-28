@@ -35,12 +35,12 @@
               <div class="box-body" >
                 <div class="form-group" style="padding:10px;">
                   <label for="exampleInputEmail1">Category Name</label>
-                  <input type="text" name="title" class="form-control" id="exampleInputEmail1" placeholder="Enter Category">
+                  <input type="text" name="title" class="form-control" id="exampleInputEmail1" >
                 </div>
                
                 <div class="form-group" style="padding:10px;">
                   <label for="exampleInputEmail1">Description</label>
-                  <input type="text" name="description" class="form-control" id="exampleInputEmail1" placeholder="Enter text">
+                  <input type="text" name="description" class="form-control" id="exampleInputEmail1" >
                 </div>
                </div>
               <!-- /.box-body -->

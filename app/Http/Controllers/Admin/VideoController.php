@@ -17,13 +17,13 @@ class VideoController extends Controller
         
         $this->validate($request,
         [
-        'video_title'=>'required|min:2|max:20',
+        'video_title'=>'required',
        
         ]);
         
         $addvideo = new Video();
-        $addvideo->video_title=$request->video_title;
-        $addvideo->video_link=$request->video_link;
+        $addvideo->Video_title=$request->video_title;
+        $addvideo->Video_link=$request->video_link;
         $addvideo->save();
         return redirect()->back()->with('success', 'Created Successfully');;
     }

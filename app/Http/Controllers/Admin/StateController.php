@@ -18,8 +18,8 @@ class StateController extends Controller
     { 
         $this->validate($request,
         [
-        'state_name'=>'required|min:2|max:20',
-        'description'=>'required',
+        'state_name'=>'required',
+        
         ]);
 
         $addstate = new AddState();

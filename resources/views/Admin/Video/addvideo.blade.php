@@ -32,15 +32,16 @@
             <!-- /.box-header -->
             <!-- form start -->
             <form role="form" action="{{url('Admin/storevideo')}}" class="form-inline">
+            
               <div class="box-body" >
                 <div class="form-group" style="padding:10px;">
-                  <label for="exampleInputEmail1">Video Title</label>
-                  <input type="text" name="video_title" class="form-control" id="exampleInputEmail1" placeholder="Enter Category">
+                  <label>Video Title</label>
+                  <input type="text" name="video_title" class="form-control">
                 </div>
                
                 <div class="form-group" style="padding:10px;">
-                  <label for="exampleInputEmail1">Video Link</label>
-                  <input type="text" name="video_link" class="form-control" id="exampleInputEmail1" placeholder="Enter text">
+                  <label>Video Link</label>
+                  <input type="text" name="video_link" class="form-control" >
                 </div>
                </div>
               <!-- /.box-body -->

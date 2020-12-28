@@ -12,17 +12,7 @@ use App\Http\Controllers\Admin\BlogController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-
-
-
 Route::get('/SubAdmin/viewlogin','SubAdmin\SubadminController@viewlogin');
-
-
-
-// Route::get('/SubAdmin/Subadminpanel','Auth\LoginController@showsubadminpanel');
-
-
 
 //news_web
 Route::get('/index', function () {
