@@ -44,9 +44,10 @@ class BlogController extends Controller
         $blog->page_keywords=$request->page_keywords;
         $blog->blog_title=$request->blog_title;
         $blog->blog_description=$request->blog_description;
-        $blog->blog_image=$filename; 
+        $blog->blog_image=$filename??''; 
+        $blog->saved_image= $imageName??'';
         $blog->posted_by=$request->posted_by;
-        $blog->blog_tags=$request->blog_tags;
+        $blog->blog_tags=$request->blog_tags??'';
         
         $blog->save();
 
@@ -101,8 +102,10 @@ class BlogController extends Controller
             'blog_title' => $request->blog_title??'',
             'blog_description' => $request->blog_description??'',
             'blog_image' => $request->blog_image??'',
+            'saved_image'=> $imageName??'',
             'posted_by' => $request->posted_by??'',
-            'blog_tags'=>$request->blog_tags??''
+            'blog_tags'=>$request->blog_tags??'',
+            
              ]);
              return redirect()->back()->with('success','blog updated successfully.');
     }

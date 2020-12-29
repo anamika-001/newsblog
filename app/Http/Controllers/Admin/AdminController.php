@@ -21,7 +21,7 @@ class AdminController extends Controller
         $validator=Validator::make($request->input(),[
             'name'=>'required',
             'email'=>'required',
-            'password'=>'required|min:5'
+            'password'=>'required'
 
         ]);
 

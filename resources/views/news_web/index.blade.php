@@ -32,15 +32,10 @@
                   <div class="latest_newsarea">
                      <span>Latest News</span>
                      <ul id="ticker01" class="news_sticker">
-                        <li><a href="single_news.php"><img src="assets/img/news-image.jpg" alt="">My First News Item</a></li>
-                        <li><a href="single_news.php"><img src="assets/img/news-image.jpg" alt="">My Second News Item</a></li>
-                        <li><a href="single_news.php"><img src="assets/img/news-image.jpg" alt="">My Third News Item</a></li>
-                        <li><a href="single_news.php"><img src="assets/img/news-image.jpg" alt="">My Four News Item</a></li>
-                        <li><a href="single_news.php"><img src="assets/img/news-image.jpg" alt="">My Five News Item</a></li>
-                        <li><a href="single_news.php"><img src="assets/img/news-image.jpg" alt="">My Six News Item</a></li>
-                        <li><a href="single_news.php"><img src="assets/img/news-image.jpg" alt="">My Seven News Item</a></li>
-                        <li><a href="single_news.php"><img src="assets/img/news-image.jpg" alt="">My Eight News Item</a></li>
-                        <li><a href="single_news.php"><img src="assets/img/news-image.jpg" alt="">My Nine News Item</a></li>
+                        @foreach($blogs as $blog)
+                        <li><a href="single_news.php"><img src="uploads/{{$blog->Saved_image}}" alt="">{{$blog->blog_title}}</a></li>
+                        @endforeach 
+                        
                      </ul>
                   </div>
                </div>
@@ -92,36 +87,63 @@
                         </div>
                      </div>
                   </div>
+
+
                   <div class="col-md-6">
                      <div class="row">
+                        <?php $i = 1;?>
+                        @foreach($completeblog as $cb)
+                        <?php if($i==1)
+                        {
+                        ?>
                         <div class="col-md-12">
                            <div class="full_box_news">
                               <a href="single_news.php">
-                                 <img src="assets/img/news-image1.webp" class="w-100">
-                                 <h4>10 मई कोरोना वायरस अपडेट : जानिए चंद मिनटों में कोरोना वायरस से जुड़ी हर खबर</h4>
+                                 <img src="uploads/{{$cb->Saved_image}}" class="w-100">
+                                 <h4>{{$cb->blog_title}}</h4>
                               </a>
                            </div>
                         </div>
-                     </div>
-                     <div class="row">
+                        <?php
+                        }
+                        ?>
+                        <?php
+                        if($i==2 || $i==3)
+                        { 
+                          if($i==2)
+                          {
+                        ?>
                         <div class="col-md-6">
                            <div class="half_news">
                               <a href="single_news.php">
-                                 <img src="assets/img/news-image1.webp" class="w-100">
-                                 <p>10 मई कोरोना वायरस अपडेट : जानिए चंद मिनटों में कोरोना वायरस से जुड़ी हर खबर</p>
+                                 <img src="uploads/{{$cb->Saved_image}}" class="w-100">
+                                 <p>{{$cb->blog_title}}</p>
                               </a>
                            </div>
                         </div>
+                        <?php
+                          }
+                          if($i==3)
+                          {
+                        ?>
                         <div class="col-md-6">
                            <div class="half_news">
                               <a href="single_news.php">
-                                 <img src="assets/img/news-image1.webp" class="w-100">
-                                 <p>10 मई कोरोना वायरस अपडेट : जानिए चंद मिनटों में कोरोना वायरस से जुड़ी हर खबर</p>
+                                 <img src="uploads/{{$cb->Saved_image}}" class="w-100">
+                                 <p>{{$cb->blog_title}}</p>
                               </a>
                            </div>
                         </div>
+                        <?php
+                          }
+                        }
+                        ?>
+                        <?php $i++;?>
+                        @endforeach
                      </div>
                   </div>
+
+
                   <div class="col-md-3">
                      <div class="">
                         <div class="right_ad">
@@ -146,102 +168,21 @@
                         <h4 class="heading">प्रमुख समाचार</h4>
                         <div class="row">
                            <div class="col-md-12">
+                           @foreach($sidenews as $sn)
                               <a href="single_news.php" class="news-box-link">
                                  <div class="row side-blog">
                                     <div class="col-4 pl-0">
-                                       <img src="assets/img/news-image.jpg" class="w-100">
+                                       <img src="uploads/{{$sn->Saved_image}}" class="w-100">
                                     </div>
                                     <div class="col-8 side-blog-content px-0">
-                                       <h6>दिल्ली पुलिस क्राइम ब्रांच ने की बड़ी कार्रवाई, 700 जमातियों के जब्त किए पासपोर्ट</h6>
+                                       <h6>{{$sn->blog_title}}</h6>
                                     </div>
                                  </div>
                               </a>
+                           @endforeach
                            </div>
                         </div>
-                        <div class="row">
-                           <div class="col-md-12">
-                              <a href="single_news.php" class="news-box-link">
-                                 <div class="row side-blog">
-                                    <div class="col-4 pl-0">
-                                       <img src="assets/img/news-image.jpg" class="w-100">
-                                    </div>
-                                    <div class="col-8 side-blog-content px-0">
-                                       <h6>दिल्ली पुलिस क्राइम ब्रांच ने की बड़ी कार्रवाई, 700 जमातियों के जब्त किए पासपोर्ट</h6>
-                                    </div>
-                                 </div>
-                              </a>
-                           </div>
-                        </div>
-                        <div class="row">
-                           <div class="col-md-12">
-                              <a href="single_news.php" class="news-box-link">
-                                 <div class="row side-blog">
-                                    <div class="col-4 pl-0">
-                                       <img src="assets/img/news-image.jpg" class="w-100">
-                                    </div>
-                                    <div class="col-8 side-blog-content px-0">
-                                       <h6>दिल्ली पुलिस क्राइम ब्रांच ने की बड़ी कार्रवाई, 700 जमातियों के जब्त किए पासपोर्ट</h6>
-                                    </div>
-                                 </div>
-                              </a>
-                           </div>
-                        </div>
-                        <div class="row">
-                           <div class="col-md-12">
-                              <a href="single_news.php" class="news-box-link">
-                                 <div class="row side-blog">
-                                    <div class="col-4 pl-0">
-                                       <img src="assets/img/news-image.jpg" class="w-100">
-                                    </div>
-                                    <div class="col-8 side-blog-content px-0">
-                                       <h6>दिल्ली पुलिस क्राइम ब्रांच ने की बड़ी कार्रवाई, 700 जमातियों के जब्त किए पासपोर्ट</h6>
-                                    </div>
-                                 </div>
-                              </a>
-                           </div>
-                        </div>
-                        <div class="row">
-                           <div class="col-md-12">
-                              <a href="single_news.php" class="news-box-link">
-                                 <div class="row side-blog">
-                                    <div class="col-4 pl-0">
-                                       <img src="assets/img/news-image.jpg" class="w-100">
-                                    </div>
-                                    <div class="col-8 side-blog-content px-0">
-                                       <h6>दिल्ली पुलिस क्राइम ब्रांच ने की बड़ी कार्रवाई, 700 जमातियों के जब्त किए पासपोर्ट</h6>
-                                    </div>
-                                 </div>
-                              </a>
-                           </div>
-                        </div>
-                        <div class="row">
-                           <div class="col-md-12">
-                              <a href="single_news.php" class="news-box-link">
-                                 <div class="row side-blog">
-                                    <div class="col-4 pl-0">
-                                       <img src="assets/img/news-image.jpg" class="w-100">
-                                    </div>
-                                    <div class="col-8 side-blog-content px-0">
-                                       <h6>दिल्ली पुलिस क्राइम ब्रांच ने की बड़ी कार्रवाई, 700 जमातियों के जब्त किए पासपोर्ट</h6>
-                                    </div>
-                                 </div>
-                              </a>
-                           </div>
-                        </div>
-                        <div class="row">
-                           <div class="col-md-12">
-                              <a href="single_news.php" class="news-box-link">
-                                 <div class="row side-blog">
-                                    <div class="col-4 pl-0">
-                                       <img src="assets/img/news-image.jpg" class="w-100">
-                                    </div>
-                                    <div class="col-8 side-blog-content px-0">
-                                       <h6>दिल्ली पुलिस क्राइम ब्रांच ने की बड़ी कार्रवाई, 700 जमातियों के जब्त किए पासपोर्ट</h6>
-                                    </div>
-                                 </div>
-                              </a>
-                           </div>
-                        </div>
+                       
                      </div>
                   </div>
                   <div class="col-md-6">
@@ -250,52 +191,75 @@
                         <div class="ribbons-wrapper">
                           <div class="ribbon">
                             <span class="ribbon5">देश विदेश</span>
-                              <div class="row cat-box">
-                                <div class="col-md-5 pd-l-cat-4 cat-left">
-                                  <a href="single_news.php" class="news-box-link">
-                                    <h4>10 मई कोरोना वायरस अपडेट : जानिए चंद मिनटों में कोरोना वायरस से जुड़ी हर खबर </h4>
-                                  </a>
-                                  <img src="assets/img/news-image.jpg" class="w-100">
-                                </div>
-                                <div class="col-md-7 pd-cat-4">
-                                  <div class="cat-wise-box">
-                                    <div class="row">
-                                      <div class="col-4">
-                                        <img src="assets/img/news-image.jpg" class="w-100">
-                                      </div>
-                                      <div class="col-8 pl-0">
-                                        <a href="single_news.php" class="news-box-link">
-                                          <h4>10 मई कोरोना वायरस अपडेट : जानिए चंद मिनटों में कोरोना वायरस से जुड़ी हर खबर</h4>
-                                        </a>
-                                      </div>
+                            <?php $i==1 ?>
+                            @foreach($centernews as $cn)
+                             
+                               <div class="row cat-box">
+                             
+                                    <div class="col-md-5 pd-l-cat-4 cat-left">
+                                          <?php if($i==1) { ?>
+                                             <a href="single_news.php" class="news-box-link">
+                                                <h4>{{$cn->blog_title}}</h4>
+                                             </a>
+                                             <img src="uploads/{{$cn->Saved_image}}" class="w-100">
+                                             <?php } ?>
                                     </div>
-                                  </div>
-                                  <div class="cat-wise-box">
-                                    <div class="row">
-                                      <div class="col-4">
-                                        <img src="assets/img/news-image.jpg" class="w-100">
-                                      </div>
-                                      <div class="col-8 pl-0">
-                                        <a href="single_news.php" class="news-box-link">
-                                          <h4>10 मई कोरोना वायरस अपडेट : जानिए चंद मिनटों में कोरोना वायरस से जुड़ी हर खबर</h4>
-                                        </a>
-                                      </div>
+                                 
+                                    <div class="col-md-7 pd-cat-4">
+                                       <?php  if($i==2 || $i==3 || $i==4) {?>
+                                       
+                                             <div class="cat-wise-box">
+                                                <?php if($i==2) { ?>
+                                                   <div class="row">
+                                                      <div class="col-4">
+                                                         <img src="uploads/{{$sn->Saved_image}}" class="w-100">
+                                                      </div>
+                                                      <div class="col-8 pl-0">
+                                                         <a href="single_news.php" class="news-box-link">
+                                                            <h4>{{$cn->blog_title}}</h4>
+                                                         </a>
+                                                      </div>
+                                                   </div>
+                                                <?php } ?>
+                                             </div>
+                                          
+                                             <div class="cat-wise-box">
+                                                <?php if( $i==3) {?>
+                                                   <div class="row">
+                                                   <div class="col-4">
+                                                      <img src="uploads/{{$sn->Saved_image}}" class="w-100">
+                                                   </div>
+                                                   <div class="col-8 pl-0">
+                                                      <a href="single_news.php" class="news-box-link">
+                                                         <h4>{{$cn->blog_title}}</h4>
+                                                      </a>
+                                                   </div>
+                                                   </div>
+                                                <?php } ?>
+                                             </div>
+                                          
+                                             <div class="cat-wise-box">
+                                                <?php if( $i==4) {?>
+                                                   <div class="row">
+                                                      <div class="col-4">
+                                                         <img src="uploads/{{$sn->Saved_image}}" class="w-100">
+                                                      </div>
+                                                      <div class="col-8 pl-0">
+                                                         <a href="single_news.php" class="news-box-link">
+                                                            <h4>{{$cn->blog_title}}</h4>
+                                                         </a>
+                                                      </div>
+                                                   </div>
+                                                <?php } ?>
+                                             </div> 
+
+
+                                          <?php } ?>                                
                                     </div>
-                                  </div>
-                                  <div class="cat-wise-box">
-                                    <div class="row">
-                                      <div class="col-4">
-                                        <img src="assets/img/news-image.jpg" class="w-100">
-                                      </div>
-                                      <div class="col-8 pl-0">
-                                        <a href="single_news.php" class="news-box-link">
-                                          <h4>10 मई कोरोना वायरस अपडेट : जानिए चंद मिनटों में कोरोना वायरस से जुड़ी हर खबर</h4>
-                                        </a>
-                                      </div>
-                                    </div>
-                                  </div>                                 
-                                </div>
                               </div>
+                              <?php $i++; ?>
+                            @endforeach
+                            
                           </div>
                         </div>
                       </div>
@@ -305,52 +269,75 @@
                         <div class="ribbons-wrapper">
                           <div class="ribbon">
                             <span class="ribbon5">देश विदेश</span>
-                              <div class="row cat-box">
-                                <div class="col-md-5 pd-l-cat-4 cat-left">
-                                  <a href="single_news.php" class="news-box-link">
-                                    <h4>10 मई कोरोना वायरस अपडेट : जानिए चंद मिनटों में कोरोना वायरस से जुड़ी हर खबर </h4>
-                                  </a>
-                                  <img src="assets/img/news-image.jpg" class="w-100">
-                                </div>
-                                <div class="col-md-7 pd-cat-4">
-                                  <div class="cat-wise-box">
-                                    <div class="row">
-                                      <div class="col-4">
-                                        <img src="assets/img/news-image.jpg" class="w-100">
-                                      </div>
-                                      <div class="col-8 pl-0">
-                                        <a href="single_news.php" class="news-box-link">
-                                          <h4>10 मई कोरोना वायरस अपडेट : जानिए चंद मिनटों में कोरोना वायरस से जुड़ी हर खबर</h4>
-                                        </a>
-                                      </div>
+                            <?php $i==1 ?>
+                            @foreach($centernews as $cn)
+                             
+                               <div class="row cat-box">
+                             
+                                    <div class="col-md-5 pd-l-cat-4 cat-left">
+                                          <?php if($i==1) { ?>
+                                             <a href="single_news.php" class="news-box-link">
+                                                <h4>{{$cn->blog_title}}</h4>
+                                             </a>
+                                             <img src="uploads/{{$cn->Saved_image}}" class="w-100">
+                                             <?php } ?>
                                     </div>
-                                  </div>
-                                  <div class="cat-wise-box">
-                                    <div class="row">
-                                      <div class="col-4">
-                                        <img src="assets/img/news-image.jpg" class="w-100">
-                                      </div>
-                                      <div class="col-8 pl-0">
-                                        <a href="single_news.php" class="news-box-link">
-                                          <h4>10 मई कोरोना वायरस अपडेट : जानिए चंद मिनटों में कोरोना वायरस से जुड़ी हर खबर</h4>
-                                        </a>
-                                      </div>
+                                 
+                                    <div class="col-md-7 pd-cat-4">
+                                       <?php  if($i==2 || $i==3 || $i==4) {?>
+                                       
+                                          <div class="cat-wise-box">
+                                                <?php if( $i==2) {?>
+                                                   <div class="row">
+                                                   <div class="col-4">
+                                                      <img src="uploads/{{$sn->Saved_image}}" class="w-100">
+                                                   </div>
+                                                   <div class="col-8 pl-0">
+                                                      <a href="single_news.php" class="news-box-link">
+                                                         <h4>{{$cn->blog_title}}</h4>
+                                                      </a>
+                                                   </div>
+                                                   </div>
+                                                <?php } ?>
+                                             </div>
+                                          
+                                             <div class="cat-wise-box">
+                                                <?php if( $i==3) {?>
+                                                   <div class="row">
+                                                   <div class="col-4">
+                                                      <img src="uploads/{{$sn->Saved_image}}" class="w-100">
+                                                   </div>
+                                                   <div class="col-8 pl-0">
+                                                      <a href="single_news.php" class="news-box-link">
+                                                         <h4>{{$cn->blog_title}}</h4>
+                                                      </a>
+                                                   </div>
+                                                   </div>
+                                                <?php } ?>
+                                             </div>
+                                          
+                                             <div class="cat-wise-box">
+                                                <?php if( $i==4) {?>
+                                                   <div class="row">
+                                                      <div class="col-4">
+                                                         <img src="uploads/{{$sn->Saved_image}}" class="w-100">
+                                                      </div>
+                                                      <div class="col-8 pl-0">
+                                                         <a href="single_news.php" class="news-box-link">
+                                                            <h4>{{$cn->blog_title}}</h4>
+                                                         </a>
+                                                      </div>
+                                                   </div>
+                                                <?php } ?>
+                                             </div> 
+
+
+                                          <?php } ?>                                
                                     </div>
-                                  </div>
-                                  <div class="cat-wise-box">
-                                    <div class="row">
-                                      <div class="col-4">
-                                        <img src="assets/img/news-image.jpg" class="w-100">
-                                      </div>
-                                      <div class="col-8 pl-0">
-                                        <a href="single_news.php" class="news-box-link">
-                                          <h4>10 मई कोरोना वायरस अपडेट : जानिए चंद मिनटों में कोरोना वायरस से जुड़ी हर खबर</h4>
-                                        </a>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
                               </div>
+                              <?php $i++; ?>
+                            @endforeach
+                            
                           </div>
                         </div>
                       </div>
@@ -363,64 +350,19 @@
                         </div>
                         <div class="live-update-container">
                            <div class="content" id="scrollbar">
+                            @foreach($sidenews as $rn)
                               <ul>
                                  <li data-tb-region-item="">
-                                    <a title="दिल्ली: हरियाणा के किसान संगठन प्रतिनिधि आज कृषि मंत्री नरेंद्र सिंह तोमर से करेंगे मुलाकात" href="single_news.php">
+                                    <a title="{{$rn->page_title}}" href="single_news.php">
                                        <div class="live-list-group">
-                                          <h4>10:54 AM</h4>
-                                          <p>दिल्ली: हरियाणा के किसान संगठन प्रतिनिधि आज कृषि मंत्री नरेंद्र सिंह तोमर से करेंगे मुलाकात</p>
+                                          <h4>{{$rn->updated_at->format('H:i:s')}}</h4>
+                                          <p>{{$rn->blog_title}}</p>
                                        </div>
                                     </a>
                                  </li>
-                                 <li data-tb-region-item="">
-                                    <a title="कोलकाता: जानवरों की तस्करी का मामला, CBI ने 4 BSF अधिकारियों को समन भेजा" href="single_news.php">
-                                       <div class="live-list-group">
-                                          <h4>10:30 AM</h4>
-                                          <p>कोलकाता: जानवरों की तस्करी का मामला, CBI ने 4 BSF अधिकारियों को समन भेजा</p>
-                                       </div>
-                                    </a>
-                                 </li>
-                                 <li data-tb-region-item="">
-                                    <a title="CM अरविंद केजरीवाल का ट्वीट: उपवास पवित्र होता है, आप जहां हैं, वहीं हमारे किसान भाइयों के लिए उपवास करें" href="single_news.php">
-                                       <div class="live-list-group">
-                                          <h4>10:15 AM</h4>
-                                          <p>CM अरविंद केजरीवाल का ट्वीट: उपवास पवित्र होता है, आप जहां हैं, वहीं हमारे किसान भाइयों के लिए उपवास करें</p>
-                                       </div>
-                                    </a>
-                                 </li>
-                                 <li data-tb-region-item="">
-                                    <a title="कोरोना अपडेट: 24 घंटे में कोरोना के 27,071 नए केस, 336 लोगों की मौत " href="single_news.php">
-                                       <div class="live-list-group">
-                                          <h4>9:44 AM</h4>
-                                          <p>कोरोना अपडेट: 24 घंटे में कोरोना के 27,071 नए केस, 336 लोगों की मौत </p>
-                                       </div>
-                                    </a>
-                                 </li>
-                                 <li data-tb-region-item="">
-                                    <a title="नई दिल्ली: CM केजरीवाल के उपवास पर प्रकाश जावड़ेकर का तंज- 'ये आपका पाखण्ड है'" href="single_news.php">
-                                       <div class="live-list-group">
-                                          <h4>9:25 AM</h4>
-                                          <p>नई दिल्ली: CM केजरीवाल के उपवास पर प्रकाश जावड़ेकर का तंज- 'ये आपका पाखण्ड है'</p>
-                                       </div>
-                                    </a>
-                                 </li>
-                                 <li data-tb-region-item="">
-                                    <a title="चेन्नई: IIT मद्रास में 71 लोग कोरोना पॉजिटिव, लैब, लाइब्रेरी बंद किया गया" href="single_news.php">
-                                       <div class="live-list-group">
-                                          <h4>9:02 AM</h4>
-                                          <p>चेन्नई: IIT मद्रास में 71 लोग कोरोना पॉजिटिव, लैब, लाइब्रेरी बंद किया गया</p>
-                                       </div>
-                                    </a>
-                                 </li>
-                                 <li data-tb-region-item="">
-                                    <a title="सुकमा: IED ब्लास्ट में घायल अधिकारी की इलाज के दौरान मौत, डिफ्यूज करने के दौरान हुए थे जख्मी" href="single_news.php">
-                                       <div class="live-list-group">
-                                          <h4>8:35 AM</h4>
-                                          <p>सुकमा: IED ब्लास्ट में घायल अधिकारी की इलाज के दौरान मौत, डिफ्यूज करने के दौरान हुए थे जख्मी</p>
-                                       </div>
-                                    </a>
-                                 </li>
+                                 
                               </ul>
+                              @endforeach
                            </div>
                         </div>
                      </div>
@@ -429,12 +371,12 @@
 
                       <p>DAILY<br><span>NEWSLETTER</span></p>
                       <h6>Get our best delivered directly to your inbox</h6>
-                      <form>
+                      <form action="{{url('/index')}}">
                         <div class="form-group">
-                          <input type="text" class="form-control" placeholder="Enter Name">
+                          <input type="text" class="form-control" name="name" placeholder="Enter Name">
                         </div>
                         <div class="form-group">
-                          <input type="email" class="form-control" placeholder="Enter Email">
+                          <input type="email" class="form-control" name="email" placeholder="Enter Email">
                         </div>
                         <button type="submit" class="btn">Subscribe</button>
                       </form>
@@ -449,31 +391,17 @@
             <div class="row">
               <div class="col-md-12">
                 <div class="row">
+                 @foreach($videos as $video)
                   <div class="col-md-4 mb-3">
                     <div class="news_outer">
                     <a href="https://www.youtube.com/embed/rtkLHNmMalQ" target="_blank">
-                    <iframe class="news_video" src="https://www.youtube.com/embed/rtkLHNmMalQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    <p>Modi govt will never take anti-farmer decisions: Rajnath Singh</p>
-                  </a>
-                    </div>
-                  </div>
-                  <div class="col-md-4 mb-3">
-                    <div class="news_outer">
-                    <a href="https://www.youtube.com/embed/rtkLHNmMalQ" target="_blank">
-                    <iframe class="news_video" src="https://www.youtube.com/embed/rtkLHNmMalQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    <p>Modi govt will never take anti-farmer decisions: Rajnath Singh</p>
-                  </a>
-                    </div>
-                  </div>
-                  <div class="col-md-4 mb-3">
-                    <div class="news_outer">
-                    <a href="https://www.youtube.com/embed/rtkLHNmMalQ" target="_blank">
-                    <iframe class="news_video" src="https://www.youtube.com/embed/rtkLHNmMalQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    <p>Modi govt will never take anti-farmer decisions: Rajnath Singh</p>
-                  </a>
+                    <iframe class="news_video" src="{{$video->Video_link}}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <p>{{$video->Video_title}}</p>
+                    </a>
                     </div>
                   </div>
                   
+                  @endforeach
                 </div>
               </div>
             </div>

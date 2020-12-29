@@ -15,9 +15,9 @@ use App\Http\Controllers\Admin\BlogController;
 Route::get('/SubAdmin/viewlogin','SubAdmin\SubadminController@viewlogin');
 
 //news_web
-Route::get('/index', function () {
-    return view('news_web.index');
-});
+// Route::get('/index', function () {
+//     return view('news_web.index');
+// });
 Route::get('/about_us', function () {
     return view('news_web.about_us');
 });
@@ -39,6 +39,9 @@ Route::get('/contact_us', function () {
 Route::get('/category', function () {
     return view('news_web.category');
 });
+//newsfetch
+Route::get('/index','News\NewsFetchController@header');
+
 //ManagerPanel
 Route::get('/ManagerLogin/viewlogin','Manager\ManagerLoginContoller@viewlogin');
  Route::get('/ManagerLogin/login','Manager\ManagerLoginContoller@login');

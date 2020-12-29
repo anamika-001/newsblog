@@ -17,7 +17,7 @@ class CategoryController extends Controller
         
         $this->validate($request,
         [
-        'title'=>'required|min:2|max:20',
+        'title'=>'required',
        
         ]);
 
