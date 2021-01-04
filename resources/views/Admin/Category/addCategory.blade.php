@@ -42,6 +42,11 @@
                   <label for="exampleInputEmail1">Description</label>
                   <input type="text" name="description" class="form-control" id="exampleInputEmail1" >
                 </div>
+
+                <div class="form-group" style="padding:10px;">
+                  <label for="exampleInputEmail1">Category Url</label>
+                  <input type="text" name="category_url" class="form-control" id="exampleInputEmail1" >
+                </div>
                </div>
               <!-- /.box-body -->
 

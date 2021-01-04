@@ -33,14 +33,13 @@ Route::get('/terms_conditions', function () {
 Route::get('/advertise_with_us', function () {
     return view('news_web.advertise_with_us');
 });
-Route::get('/contact_us', function () {
-    return view('news_web.contact_us');
-});
-Route::get('/category', function () {
-    return view('news_web.category');
-});
+
+
 //newsfetch
 Route::get('/index','News\NewsFetchController@header');
+Route::post('/subscriber', 'News\NewsFetchController@subscribe');
+Route::get('/{category_url}', 'News\NewsFetchController@category');
+Route::get('/{blog_url}', 'News\NewsFetchController@blog');
 
 //ManagerPanel
 Route::get('/ManagerLogin/viewlogin','Manager\ManagerLoginContoller@viewlogin');

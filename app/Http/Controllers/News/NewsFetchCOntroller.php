@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\AddCategory;
 use App\AddBlog;
 use App\Video;
+use App\Subscriber;
 
 class NewsFetchCOntroller extends Controller
 {
@@ -28,6 +29,35 @@ class NewsFetchCOntroller extends Controller
         return View('news_web.index', compact(['categories','blogs','completeblog','sidenews','centernews','videos']));
        
     }
+    public function subscribe(Request $request)
+    {
+        $subscriber=new Subscriber();
+        $subscriber->name=$request->name;
+        $subscriber->email=$request->email;
+        $subscriber->save();
+        return redirect()->back()->with('success','subscribed successfully');
+       
+    }
 
-    
+    public function category($category_url)
+    {
+        $categories=AddCategory::all();
+        $category=AddCategory::where('category_url',$category_url)->first();
+        $categoryId=$category->id;
+        $blog=AddBlog::where('category_id',$categoryId)->get();
+      
+        return View('news_web.category', compact(['categories','category','blog']));
+       
+    }
+    public function blog($blog_url)
+    {
+        $categories=AddCategory::all();
+        $blog=AddBlog::where('blog_url',$blog_url)->get();
+        
+        $categoryId=$category->id;
+        $blog=AddBlog::where('category_id',$categoryId)->get();
+      
+        return View('news_web.category', compact(['categories','category','blog']));
+       
+    }
 }

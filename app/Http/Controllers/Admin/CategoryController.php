@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\AddCategory;
+use File;
 
 class CategoryController extends Controller
 {
@@ -18,13 +19,17 @@ class CategoryController extends Controller
         $this->validate($request,
         [
         'title'=>'required',
-       
+        'category_url'=>'required',
         ]);
 
         $addcategory = new AddCategory();
         $addcategory->title=$request['title'];
         $addcategory->description=$request['description'];
+        $addcategory->category_url=$request['category_url'];
         $addcategory->save();
+        $destinationPath=base_path().'\resources\views\news_web';
+        
+        
         return redirect()->back()->with('success','category created successfully.');
     }
 
@@ -54,7 +59,8 @@ class CategoryController extends Controller
         
         AddCategory::where('id', '=', $id)->update([
         'title' => $request->title??'',
-        'description' => $request->description??''
+        'description' => $request->description??'',
+        'category_url'=> $request->category_url??'',
          ]);
          return redirect()->back()->with('success', 'Updated Successfully');
     }

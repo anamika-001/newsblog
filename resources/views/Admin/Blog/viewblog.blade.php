@@ -15,6 +15,7 @@
       <th scope="col">S.No.</th>
       <th scope="col">Category Id</th>
       <th scope="col">State Id</th>
+      <th scope="col">Blog url</th>
       <th scope="col">Page Title</th>
       <th scope="col">Page Description</th>
       <th scope="col">Page Meta Description</th>
@@ -34,6 +35,7 @@
       <th scope="row">{{$Count}}</th>
       <td scope="row">{{$blog->category_id}}</td>
       <td scope="row">{{$blog->state_id}}</td>
+      <td scope="row">{{$blog->blog_url}}</td>
       <td scope="row">{{$blog->page_title}}</td>
       <td scope="row">{{$blog->page_description}}</td>
       <td scope="row">{{$blog->page_meta_description}}</td>

@@ -54,17 +54,21 @@
                   </select>
                   <br>
                   <div class="form-group">
+                    <label for="exampleInputEmail1">Blog Url</label>
+                    <input type="text" name="blog_url" class="form-control" id="exampleInputEmail1" >
+                  </div>
+                  <div class="form-group">
                     <label for="exampleInputEmail1">Page Title</label>
                     <input type="text" value="{{$blogs->page_title}}" name="page_title" class="form-control" id="exampleInputEmail1" >
                   </div>
                   
                   <div class="form-group">
                     <label for="exampleInputEmail1">Page Description</label>
-                    <input type="text" value="{{$blogs->page_description}}" name="page_description" class="form-control" id="exampleInputEmail1" >
+                    <textarea type="text" value="{{$blogs->page_description}}" name="page_description" class="form-control" id="exampleInputEmail1" ></textarea>
                   </div>
                   <div class="form-group">
                     <label for="exampleInputEmail1">Page Meta Description</label>
-                    <input type="text" value="{{$blogs->page_meta_description}}" name="page_meta_description" class="form-control" id="exampleInputEmail1" >
+                    <textarea type="text" value="{{$blogs->page_meta_description}}" name="page_meta_description" class="form-control" id="exampleInputEmail1" ></textarea>
                   </div>
                   <div class="form-group">
                     <label for="exampleInputEmail1">Page Keywords</label>
@@ -72,16 +76,17 @@
                   </div>
                   
                   <div class="form-group">
-                    <label for="exampleInputEmail1">BLog title</label>
+                    <label for="exampleInputEmail1">Blog Title</label>
                     <input type="text" value="{{$blogs->blog_title}}" name="blog_title" class="form-control" id="exampleInputEmail1" >
                   </div>
                   <div class="form-group">
-                    <label for="exampleInputEmail1">Blog description</label>
-                    <input type="text" value="{{$blogs->blog_description}}" name="blog_description" class="form-control" id="exampleInputEmail1" >
+                    <label for="exampleInputEmail1">Blog Description</label>
+                    <textarea type="text" value="{{$blogs->blog_description}}" name="blog_description" class="form-control" id="exampleInputEmail1" ></textarea>
                   </div>
                   <div class="form-group">
                     <label for="exampleInputPassword1">Blog Posted By</label>
-                    <input type="text" value="{{$blogs->posted_by}}" name="posted_by" class="form-control" id="exampleInputPassword1" >                </div>
+                    <input type="text" value="{{$blogs->posted_by}}" name="posted_by" class="form-control" id="exampleInputPassword1" > 
+                                   </div>
                   <div class="form-group">
                     <label for="exampleInputFile">Blog Image</label>
                     <input type="file" src="{{asset($blogs->blog_image)}}" name="blog_image" id="exampleInputFile">

@@ -14,6 +14,7 @@
       <th scope="col">S.No.</th>
       <th scope="col">Title</th>
       <th scope="col">Description</th>
+      <th scope="col">Category_url</th>
       <th scope="col">Action</th>
     </tr>
   </thead>
@@ -25,6 +26,7 @@
       <td scope="row">{{$category->title}}</td>
      
       <td scope="row">{{$category->description}}</td>
+      <td scope="row">{{$category->category_url}}</td>
       <td>
         <a href = 'editcategory/{{ $category->id }}' type="submit" class="edit" title="Edit" data-toggle="tooltip"><i class="fas fa fa-edit"></i></a>
         <a href = 'destroycategory/{{ $category->id }}' class="delete" title="Delete" data-toggle="tooltip"><i class="fas fa fa-trash"></i></a>

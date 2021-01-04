@@ -33,7 +33,7 @@
                      <span>Latest News</span>
                      <ul id="ticker01" class="news_sticker">
                         @foreach($blogs as $blog)
-                        <li><a href="single_news.php"><img src="uploads/{{$blog->Saved_image}}" alt="">{{$blog->blog_title}}</a></li>
+                        <li><a href="{{ url($blog->blog_url)}}"><img src="uploads/{{$blog->Saved_image}}" alt="">{{$blog->blog_title}}</a></li>
                         @endforeach 
                         
                      </ul>
@@ -98,7 +98,7 @@
                         ?>
                         <div class="col-md-12">
                            <div class="full_box_news">
-                              <a href="single_news.php">
+                              <a href="{{ url($cb->blog_url)}}">
                                  <img src="uploads/{{$cb->Saved_image}}" class="w-100">
                                  <h4>{{$cb->blog_title}}</h4>
                               </a>
@@ -161,231 +161,173 @@
             </div>
          </section>
          <section class="section-top-space">
-            <div class="container-fluid">
+   <div class="container-fluid">
+      <div class="row">
+         <div class="col-md-3">
+            <div id="sidebar" class="top_stories">
+               <h4 class="heading">प्रमुख समाचार</h4>
                <div class="row">
-                  <div class="col-md-3">
-                     <div id="sidebar" class="top_stories">
-                        <h4 class="heading">प्रमुख समाचार</h4>
-                        <div class="row">
-                           <div class="col-md-12">
-                           @foreach($sidenews as $sn)
-                              <a href="single_news.php" class="news-box-link">
-                                 <div class="row side-blog">
-                                    <div class="col-4 pl-0">
-                                       <img src="uploads/{{$sn->Saved_image}}" class="w-100">
-                                    </div>
-                                    <div class="col-8 side-blog-content px-0">
-                                       <h6>{{$sn->blog_title}}</h6>
-                                    </div>
-                                 </div>
-                              </a>
-                           @endforeach
+                  <div class="col-md-12">
+                     @foreach($sidenews as $sn)
+                     <a href="single_news.php" class="news-box-link">
+                        <div class="row side-blog">
+                           <div class="col-4 pl-0">
+                              <img src="uploads/{{$sn->Saved_image}}" class="w-100">
+                           </div>
+                           <div class="col-8 side-blog-content px-0">
+                              <h6>{{$sn->blog_title}}</h6>
                            </div>
                         </div>
-                       
-                     </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="row">
-                      <div class="col-md-12">
-                        <div class="ribbons-wrapper">
-                          <div class="ribbon">
-                            <span class="ribbon5">देश विदेश</span>
-                            <?php $i==1 ?>
-                            @foreach($centernews as $cn)
-                             
-                               <div class="row cat-box">
-                             
-                                    <div class="col-md-5 pd-l-cat-4 cat-left">
-                                          <?php if($i==1) { ?>
-                                             <a href="single_news.php" class="news-box-link">
-                                                <h4>{{$cn->blog_title}}</h4>
-                                             </a>
-                                             <img src="uploads/{{$cn->Saved_image}}" class="w-100">
-                                             <?php } ?>
-                                    </div>
-                                 
-                                    <div class="col-md-7 pd-cat-4">
-                                       <?php  if($i==2 || $i==3 || $i==4) {?>
-                                       
-                                             <div class="cat-wise-box">
-                                                <?php if($i==2) { ?>
-                                                   <div class="row">
-                                                      <div class="col-4">
-                                                         <img src="uploads/{{$sn->Saved_image}}" class="w-100">
-                                                      </div>
-                                                      <div class="col-8 pl-0">
-                                                         <a href="single_news.php" class="news-box-link">
-                                                            <h4>{{$cn->blog_title}}</h4>
-                                                         </a>
-                                                      </div>
-                                                   </div>
-                                                <?php } ?>
-                                             </div>
-                                          
-                                             <div class="cat-wise-box">
-                                                <?php if( $i==3) {?>
-                                                   <div class="row">
-                                                   <div class="col-4">
-                                                      <img src="uploads/{{$sn->Saved_image}}" class="w-100">
-                                                   </div>
-                                                   <div class="col-8 pl-0">
-                                                      <a href="single_news.php" class="news-box-link">
-                                                         <h4>{{$cn->blog_title}}</h4>
-                                                      </a>
-                                                   </div>
-                                                   </div>
-                                                <?php } ?>
-                                             </div>
-                                          
-                                             <div class="cat-wise-box">
-                                                <?php if( $i==4) {?>
-                                                   <div class="row">
-                                                      <div class="col-4">
-                                                         <img src="uploads/{{$sn->Saved_image}}" class="w-100">
-                                                      </div>
-                                                      <div class="col-8 pl-0">
-                                                         <a href="single_news.php" class="news-box-link">
-                                                            <h4>{{$cn->blog_title}}</h4>
-                                                         </a>
-                                                      </div>
-                                                   </div>
-                                                <?php } ?>
-                                             </div> 
-
-
-                                          <?php } ?>                                
-                                    </div>
-                              </div>
-                              <?php $i++; ?>
-                            @endforeach
-                            
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-12">
-                        <div class="ribbons-wrapper">
-                          <div class="ribbon">
-                            <span class="ribbon5">देश विदेश</span>
-                            <?php $i==1 ?>
-                            @foreach($centernews as $cn)
-                             
-                               <div class="row cat-box">
-                             
-                                    <div class="col-md-5 pd-l-cat-4 cat-left">
-                                          <?php if($i==1) { ?>
-                                             <a href="single_news.php" class="news-box-link">
-                                                <h4>{{$cn->blog_title}}</h4>
-                                             </a>
-                                             <img src="uploads/{{$cn->Saved_image}}" class="w-100">
-                                             <?php } ?>
-                                    </div>
-                                 
-                                    <div class="col-md-7 pd-cat-4">
-                                       <?php  if($i==2 || $i==3 || $i==4) {?>
-                                       
-                                          <div class="cat-wise-box">
-                                                <?php if( $i==2) {?>
-                                                   <div class="row">
-                                                   <div class="col-4">
-                                                      <img src="uploads/{{$sn->Saved_image}}" class="w-100">
-                                                   </div>
-                                                   <div class="col-8 pl-0">
-                                                      <a href="single_news.php" class="news-box-link">
-                                                         <h4>{{$cn->blog_title}}</h4>
-                                                      </a>
-                                                   </div>
-                                                   </div>
-                                                <?php } ?>
-                                             </div>
-                                          
-                                             <div class="cat-wise-box">
-                                                <?php if( $i==3) {?>
-                                                   <div class="row">
-                                                   <div class="col-4">
-                                                      <img src="uploads/{{$sn->Saved_image}}" class="w-100">
-                                                   </div>
-                                                   <div class="col-8 pl-0">
-                                                      <a href="single_news.php" class="news-box-link">
-                                                         <h4>{{$cn->blog_title}}</h4>
-                                                      </a>
-                                                   </div>
-                                                   </div>
-                                                <?php } ?>
-                                             </div>
-                                          
-                                             <div class="cat-wise-box">
-                                                <?php if( $i==4) {?>
-                                                   <div class="row">
-                                                      <div class="col-4">
-                                                         <img src="uploads/{{$sn->Saved_image}}" class="w-100">
-                                                      </div>
-                                                      <div class="col-8 pl-0">
-                                                         <a href="single_news.php" class="news-box-link">
-                                                            <h4>{{$cn->blog_title}}</h4>
-                                                         </a>
-                                                      </div>
-                                                   </div>
-                                                <?php } ?>
-                                             </div> 
-
-
-                                          <?php } ?>                                
-                                    </div>
-                              </div>
-                              <?php $i++; ?>
-                            @endforeach
-                            
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-3">
-                    <div class="widget-container live-update">
-                        <div class="live-update-heading">
-                           <h2>लाइव अपडेट</h2>
-                        </div>
-                        <div class="live-update-container">
-                           <div class="content" id="scrollbar">
-                            @foreach($sidenews as $rn)
-                              <ul>
-                                 <li data-tb-region-item="">
-                                    <a title="{{$rn->page_title}}" href="single_news.php">
-                                       <div class="live-list-group">
-                                          <h4>{{$rn->updated_at->format('H:i:s')}}</h4>
-                                          <p>{{$rn->blog_title}}</p>
-                                       </div>
-                                    </a>
-                                 </li>
-                                 
-                              </ul>
-                              @endforeach
-                           </div>
-                        </div>
-                     </div>
-
-                     <div class="subscribe_form">
-
-                      <p>DAILY<br><span>NEWSLETTER</span></p>
-                      <h6>Get our best delivered directly to your inbox</h6>
-                      <form action="{{url('/index')}}">
-                        <div class="form-group">
-                          <input type="text" class="form-control" name="name" placeholder="Enter Name">
-                        </div>
-                        <div class="form-group">
-                          <input type="email" class="form-control" name="email" placeholder="Enter Email">
-                        </div>
-                        <button type="submit" class="btn">Subscribe</button>
-                      </form>
-                     </div>
-
+                     </a>
+                     @endforeach
                   </div>
                </div>
             </div>
-      </section>
+         </div>
+         <div class="col-md-6">
+            <div class="row">
+               <div class="col-md-12">
+                  <div class="ribbons-wrapper">
+                     <div class="ribbon">
+                        <span class="ribbon5">देश विदेश</span>
+                        <?php $i = 1;?>
+                        <div class="row cat-box">
+                           @foreach($centernews as $cn)
+                           <?php if($i==1) { ?>
+                           <div class="col-md-5 pd-l-cat-4 cat-left">
+                              <a href="single_news.php" class="news-box-link">
+                                 <h4>{{$cn->blog_title}}</h4>
+                              </a>
+                              <img src="uploads/{{$cn->Saved_image}}" class="w-100">
+                           </div>
+                           <?php } ?>
+                           <?php  if($i==2) 
+                            { ?>
+                           <div class="col-md-7 pd-cat-4">
+                              
+                              <?php
+                                 if($i==2) { 
+                                 ?>
+                             @foreach($completeblog as $cb)
+                              <div class="row">
+                                 <div class="col-4">
+                                    <img src="uploads/{{$cb->Saved_image}}" class="w-100">
+                                 </div>
+                                 <div class="col-8 pl-0">
+                                    <a href="single_news.php" class="news-box-link">
+                                       <h4>{{$cb->blog_title}}</h4>
+                                    </a>
+                                 </div>
+                              </div>
+                              @endforeach
+                             
+                              <?php } ?>
+                           </div>
+                           <?php 
+                            }
+                              $i++; ?>
+                           @endforeach
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-md-12">
+                  <div class="ribbons-wrapper">
+                     <div class="ribbon">
+                        <span class="ribbon5">देश विदेश</span>
+                        <?php $i = 1;?>
+                        <div class="row cat-box">
+                           @foreach($centernews as $cn)
+                           <?php if($i==1) { ?>
+                           <div class="col-md-5 pd-l-cat-4 cat-left">
+                              <a href="single_news.php" class="news-box-link">
+                                 <h4>{{$cn->blog_title}}</h4>
+                              </a>
+                              <img src="uploads/{{$cn->Saved_image}}" class="w-100">
+                           </div>
+                           <?php } ?>
+                           <?php  if($i==2) 
+                            { ?>
+                           <div class="col-md-7 pd-cat-4">
+                              
+                              <?php
+                                 if($i==2) { 
+                                 ?>
+                             @foreach($completeblog as $cb)
+                              <div class="row">
+                                 <div class="col-4">
+                                    <img src="uploads/{{$cb->Saved_image}}" class="w-100">
+                                 </div>
+                                 <div class="col-8 pl-0">
+                                    <a href="single_news.php" class="news-box-link">
+                                       <h4>{{$cb->blog_title}}</h4>
+                                    </a>
+                                 </div>
+                              </div>
+                              @endforeach
+                             
+                              <?php } ?>
+                           </div>
+                           <?php 
+                            }
+                              $i++; ?>
+                           @endforeach
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="col-md-3">
+            <div class="widget-container live-update">
+               <div class="live-update-heading">
+                  <h2>लाइव अपडेट</h2>
+               </div>
+               <div class="live-update-container">
+                  <div class="content" id="scrollbar">
+                     @foreach($sidenews as $rn)
+                     <ul>
+                        <li data-tb-region-item="">
+                           <a title="{{$rn->page_title}}" href="single_news.php">
+                              <div class="live-list-group">
+                                 <h4>{{$rn->updated_at->format("H:i A")}}</h4>
+                                 <p>{{$rn->blog_title}}</p>
+                              </div>
+                           </a>
+                        </li>
+                     </ul>
+                     @endforeach
+                  </div>
+               </div>
+            </div>
+            <div class="subscribe_form">
+               @if(Session::has('success'))
+               <div class="alert alert-success">
+                  {{ Session::get('success') }}
+                  @php
+                  Session::forget('success');
+                  @endphp
+               </div>
+               @endif
+               <p>DAILY<br><span>NEWSLETTER</span></p>
+               <h6>Get our best delivered directly to your inbox</h6>
+               <form action="{{url('/subscriber')}}" method="post">
+                  @csrf
+                  <div class="form-group">
+                     <input type="text" class="form-control" name="name" placeholder="Enter Name">
+                  </div>
+                  <div class="form-group">
+                     <input type="email" class="form-control" name="email" placeholder="Enter Email">
+                  </div>
+                  <button type="submit" class="btn">Subscribe</button>
+               </form>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
       <section class="section-top-space">
          <div class="container-fluid">
             <div class="row">

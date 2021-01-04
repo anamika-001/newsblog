@@ -43,8 +43,12 @@
                   <label for="exampleInputEmail1">Description</label>
                   <input type="text" name="description" value="{{$categories->description}}" class="form-control" id="exampleInputEmail1" >
                 </div>
+                <div class="form-group" style="padding:10px;">
+                  <label for="exampleInputEmail1">Category Url</label>
+                  <input type="text" name="category_url" class="form-control" id="exampleInputEmail1" >
+                </div>
                </div>
-              <!-- /.box-body -->
+               
 
               <div class="box-footer">
                 <button type="submit" class="btn btn-primary">Submit</button>

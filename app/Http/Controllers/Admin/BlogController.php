@@ -38,6 +38,7 @@ class BlogController extends Controller
         $blog=new AddBlog();
         $blog->category_id=$request->category_id;
         $blog->state_id=$request->state_id;
+        $blog->blog_url=$request->blog_url;
         $blog->page_title=$request->page_title;
         $blog->page_description=$request->page_description;
         $blog->page_meta_description=$request->page_meta_description;
@@ -76,6 +77,7 @@ class BlogController extends Controller
         $this->validate($request,[
             'category_id' => 'required',
             'state_id' => 'required',
+            'blog_url' => 'required',
             'page_title' => 'required',
             'page_description' => 'required',
             'page_meta_description' => 'required',
@@ -95,6 +97,7 @@ class BlogController extends Controller
         AddBlog::where('id', '=', $id)->update([
             'category_id' => $request->category_id??'',
             'state_id' => $request->state_id??'',
+            'blog_url' => $request->blog_url??'',
             'page_title' => $request->page_title??'',
             'page_description' => $request->page_description??'',
             'page_meta_description' => $request->page_meta_description??'',

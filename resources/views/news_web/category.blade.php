@@ -191,15 +191,23 @@
                            <img src="assets/img/ad2.gif" class="w-100">
                         </div>
                      <div class="subscribe_form">
-
+                     @if(Session::has('success'))
+                     <div class="alert alert-success">
+                        {{ Session::get('success') }}
+                        @php
+                        Session::forget('success');
+                        @endphp
+                     </div>
+                     @endif
                       <p>DAILY<br><span>NEWSLETTER</span></p>
                       <h6>Get our best delivered directly to your inbox</h6>
                       <form>
-                        <div class="form-group">
-                          <input type="text" class="form-control" placeholder="Enter Name">
+                        <div class="form-group" action="{{url('/subscriber')}}" method="post">
+                        @csrf
+                          <input type="text" name="name" class="form-control" placeholder="Enter Name">
                         </div>
                         <div class="form-group">
-                          <input type="email" class="form-control" placeholder="Enter Email">
+                          <input type="email"  name="email" class="form-control" placeholder="Enter Email">
                         </div>
                         <button type="submit" class="btn">Subscribe</button>
                       </form>
