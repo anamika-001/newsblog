@@ -115,7 +115,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li class="active"><a href="{{url('/Admin/addcategory')}}"><i class="fa fa-circle-o"></i> Add category</a></li>
+            <li class="active"><a href="{{url('/Admin/addcategory')}}"><i class="fa fa-circle-o"></i> Add Category</a></li>
             <li><a href="{{url('Admin/viewcategory')}}"><i class="fa fa-circle-o"></i> View Category</a></li>
           </ul>
         </li>
@@ -140,7 +140,7 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="{{url('Admin/addblog')}}"><i class="fa fa-circle-o"></i> Add Blog</a></li>
-            <li><a href="{{url('Admin/viewblog')}}"><i class="fa fa-circle-o"></i> View state</a></li>
+            <li><a href="{{url('Admin/viewblog')}}"><i class="fa fa-circle-o"></i> View Blog</a></li>
           </ul>
         </li>
         <li class="treeview active">

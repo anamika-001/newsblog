@@ -115,7 +115,7 @@
                         ?>
                         <div class="col-md-6">
                            <div class="half_news">
-                              <a href="single_news.php">
+                              <a href="{{ url($cb->blog_url)}}">
                                  <img src="uploads/{{$cb->Saved_image}}" class="w-100">
                                  <p>{{$cb->blog_title}}</p>
                               </a>
@@ -128,7 +128,7 @@
                         ?>
                         <div class="col-md-6">
                            <div class="half_news">
-                              <a href="single_news.php">
+                              <a href="{{ url($cb->blog_url)}}">
                                  <img src="uploads/{{$cb->Saved_image}}" class="w-100">
                                  <p>{{$cb->blog_title}}</p>
                               </a>

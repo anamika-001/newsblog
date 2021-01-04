@@ -42,7 +42,7 @@ class NewsFetchCOntroller extends Controller
     public function category($category_url)
     {
         $categories=AddCategory::all();
-        $category=AddCategory::where('category_url',$category_url)->first();
+        $category=AddCategory::where('category_url',$category_url)->findOrFail(1);
         $categoryId=$category->id;
         $blog=AddBlog::where('category_id',$categoryId)->get();
       
@@ -52,8 +52,8 @@ class NewsFetchCOntroller extends Controller
     public function blog($blog_url)
     {
         $categories=AddCategory::all();
-        $blog=AddBlog::where('blog_url',$blog_url)->get();
-        
+        $blog=AddBlog::where('blog_url',$blog_url)->findOrFail(1);
+    
         $categoryId=$category->id;
         $blog=AddBlog::where('category_id',$categoryId)->get();
       
