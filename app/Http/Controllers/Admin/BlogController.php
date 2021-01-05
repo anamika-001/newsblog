@@ -26,6 +26,19 @@ class BlogController extends Controller
    
     public function store(Request $request)
     { 
+        // $this->validate($request,
+        // [
+        // 'category_id'=>'required',
+        // 'state_id'=>'required',
+        // 'blog_url'=>'required',
+        // 'page_title'=>'required',
+        // 'page_meta_description'=>'required',
+        // 'page_description'=>'required',
+        // 'keywords'=>'required',
+        // 'blog_title'=>'required',
+        // 'blog_description'=>'required',
+        
+        // ]);
         $filename=$_FILES['blog_image']['name'];
         if($request->hasfile('blog_image')){
         $filename=$_FILES['blog_image']['name'];
@@ -45,6 +58,10 @@ class BlogController extends Controller
         $blog->page_keywords=$request->page_keywords;
         $blog->blog_title=$request->blog_title;
         $blog->blog_description=$request->blog_description;
+        $blog->highlight1=$request->highlight1;
+        $blog->highlight2=$request->highlight2;
+        $blog->highlight3=$request->highlight3;
+        $blog->highlight4=$request->highlight4;
         $blog->blog_image=$filename??''; 
         $blog->saved_image= $imageName??'';
         $blog->posted_by=$request->posted_by;
@@ -104,6 +121,10 @@ class BlogController extends Controller
             'page_keywords' => $request->page_keywords??'',
             'blog_title' => $request->blog_title??'',
             'blog_description' => $request->blog_description??'',
+            'highlight1'=>$request->highlight1??'',
+            'highlight2'=>$request->highlight2??'',
+            'highlight3'=>$request->highlight3??'',
+            'highlight4'=>$request->highlight4??'',
             'blog_image' => $request->blog_image??'',
             'saved_image'=> $imageName??'',
             'posted_by' => $request->posted_by??'',

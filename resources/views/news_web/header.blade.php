@@ -23,7 +23,7 @@
                            <li class="active"><a href="{{url('/index')}}"> <i class="fa fa-home"></i><span class="sr-only">(current)</span></a></li>
                           
                               @foreach($categories as $category) 
-                           <li><a href="{{ url($category->category_url)}}">{{$category->title}}</a></li>
+                           <li><a href="{{ url('category/'.$category->category_url)}}">{{$category->title}}</a></li>
                           
                            @endforeach 
                         </ul>

@@ -33,7 +33,7 @@
                      <span>Latest News</span>
                      <ul id="ticker01" class="news_sticker">
                         @foreach($blogs as $blog)
-                        <li><a href="{{ url($blog->blog_url)}}"><img src="uploads/{{$blog->Saved_image}}" alt="">{{$blog->blog_title}}</a></li>
+                        <li><a href="{{ url('blogs/'.$blog->blog_url)}}"><img src="uploads/{{$blog->Saved_image}}" alt="">{{$blog->blog_title}}</a></li>
                         @endforeach 
                         
                      </ul>
@@ -98,7 +98,7 @@
                         ?>
                         <div class="col-md-12">
                            <div class="full_box_news">
-                              <a href="{{ url($cb->blog_url)}}">
+                              <a href="{{ url('blogs/'.$cb->blog_url)}}">
                                  <img src="uploads/{{$cb->Saved_image}}" class="w-100">
                                  <h4>{{$cb->blog_title}}</h4>
                               </a>
@@ -115,7 +115,7 @@
                         ?>
                         <div class="col-md-6">
                            <div class="half_news">
-                              <a href="{{ url($cb->blog_url)}}">
+                              <a href="{{ url('blogs/'.$cb->blog_url)}}">
                                  <img src="uploads/{{$cb->Saved_image}}" class="w-100">
                                  <p>{{$cb->blog_title}}</p>
                               </a>
@@ -128,7 +128,7 @@
                         ?>
                         <div class="col-md-6">
                            <div class="half_news">
-                              <a href="{{ url($cb->blog_url)}}">
+                              <a href="{{ url('blogs/'.$cb->blog_url)}}">
                                  <img src="uploads/{{$cb->Saved_image}}" class="w-100">
                                  <p>{{$cb->blog_title}}</p>
                               </a>
@@ -169,7 +169,7 @@
                <div class="row">
                   <div class="col-md-12">
                      @foreach($sidenews as $sn)
-                     <a href="single_news.php" class="news-box-link">
+                     <a href="{{ url('blogs/'.$sn->blog_url)}}" class="news-box-link">
                         <div class="row side-blog">
                            <div class="col-4 pl-0">
                               <img src="uploads/{{$sn->Saved_image}}" class="w-100">
@@ -189,16 +189,16 @@
                <div class="col-md-12">
                   <div class="ribbons-wrapper">
                      <div class="ribbon">
-                        <span class="ribbon5">देश विदेश</span>
+                        <span class="ribbon5">{{$categoryfirst->title}}</span>
                         <?php $i = 1;?>
                         <div class="row cat-box">
-                           @foreach($centernews as $cn)
+                           @foreach($centernewsfirst as $cf)
                            <?php if($i==1) { ?>
                            <div class="col-md-5 pd-l-cat-4 cat-left">
-                              <a href="single_news.php" class="news-box-link">
-                                 <h4>{{$cn->blog_title}}</h4>
+                              <a href="{{ url('blogs/'.$cf->blog_url)}}" class="news-box-link">
+                                 <h4>{{$cf->blog_title}}</h4>
                               </a>
-                              <img src="uploads/{{$cn->Saved_image}}" class="w-100">
+                              <img src="uploads/{{$cf->Saved_image}}" class="w-100">
                            </div>
                            <?php } ?>
                            <?php  if($i==2) 
@@ -208,18 +208,18 @@
                               <?php
                                  if($i==2) { 
                                  ?>
-                             @foreach($completeblog as $cb)
-                              <div class="row">
-                                 <div class="col-4">
-                                    <img src="uploads/{{$cb->Saved_image}}" class="w-100">
-                                 </div>
-                                 <div class="col-8 pl-0">
-                                    <a href="single_news.php" class="news-box-link">
-                                       <h4>{{$cb->blog_title}}</h4>
-                                    </a>
-                                 </div>
-                              </div>
-                              @endforeach
+                                 @foreach($completeblog as $cf)
+                                    <div class="row">
+                                       <div class="col-4">
+                                          <img src="uploads/{{$cf->Saved_image}}" class="w-100">
+                                       </div>
+                                       <div class="col-8 pl-0">
+                                          <a href="{{ url('blogs/'.$cf->blog_url)}}" class="news-box-link">
+                                             <h4>{{$cf->blog_title}}</h4>
+                                          </a>
+                                       </div>
+                                    </div>
+                                 @endforeach
                              
                               <?php } ?>
                            </div>
@@ -236,16 +236,16 @@
                <div class="col-md-12">
                   <div class="ribbons-wrapper">
                      <div class="ribbon">
-                        <span class="ribbon5">देश विदेश</span>
+                        <span class="ribbon5">{{$categorysecond->title}}</span>
                         <?php $i = 1;?>
                         <div class="row cat-box">
-                           @foreach($centernews as $cn)
+                           @foreach($centernewsfirst as $cs)
                            <?php if($i==1) { ?>
                            <div class="col-md-5 pd-l-cat-4 cat-left">
-                              <a href="single_news.php" class="news-box-link">
-                                 <h4>{{$cn->blog_title}}</h4>
+                              <a href="{{ url('blogs/'.$cs->blog_url)}}" class="news-box-link">
+                                 <h4>{{$cs->blog_title}}</h4>
                               </a>
-                              <img src="uploads/{{$cn->Saved_image}}" class="w-100">
+                              <img src="uploads/{{$cs->Saved_image}}" class="w-100">
                            </div>
                            <?php } ?>
                            <?php  if($i==2) 
@@ -261,7 +261,7 @@
                                     <img src="uploads/{{$cb->Saved_image}}" class="w-100">
                                  </div>
                                  <div class="col-8 pl-0">
-                                    <a href="single_news.php" class="news-box-link">
+                                    <a href="{{ url('blogs/'.$cb->blog_url)}}" class="news-box-link">
                                        <h4>{{$cb->blog_title}}</h4>
                                     </a>
                                  </div>
@@ -290,7 +290,7 @@
                      @foreach($sidenews as $rn)
                      <ul>
                         <li data-tb-region-item="">
-                           <a title="{{$rn->page_title}}" href="single_news.php">
+                           <a title="{{$rn->page_title}}" href="{{ url('blogs/'.$rn->blog_url)}}">
                               <div class="live-list-group">
                                  <h4>{{$rn->updated_at->format("H:i A")}}</h4>
                                  <p>{{$rn->blog_title}}</p>

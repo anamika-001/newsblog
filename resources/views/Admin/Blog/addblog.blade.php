@@ -89,6 +89,22 @@
                     <textarea  type="text" name="blog_description" class="form-control" id="exampleInputEmail1" > </textarea>
                   </div>
                   <div class="form-group">
+                    <label for="exampleInputEmail1">highlight 1</label>
+                    <input  type="text" name="highlight1" class="form-control" id="exampleInputEmail1" > 
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">highlight 2</label>
+                    <input  type="text" name="highlight2" class="form-control" id="exampleInputEmail1" > 
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">highlight 3</label>
+                    <input  type="text" name="highlight3" class="form-control" id="exampleInputEmail1" > 
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">highlight 4</label>
+                    <input  type="text" name="highlight4" class="form-control" id="exampleInputEmail1" >
+                  </div>
+                  <div class="form-group">
                     <label for="exampleInputPassword1">Blog Posted By</label>
                     <input type="text" name="posted_by" class="form-control" id="exampleInputPassword1"   >
                   </div>

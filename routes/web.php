@@ -2,6 +2,8 @@
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\StateController;
 use App\Http\Controllers\Admin\BlogController;
+use App\AddCategory;
+use App\AddBlog;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,32 +16,51 @@ use App\Http\Controllers\Admin\BlogController;
 */
 Route::get('/SubAdmin/viewlogin','SubAdmin\SubadminController@viewlogin');
 
-//news_web
-// Route::get('/index', function () {
-//     return view('news_web.index');
-// });
 Route::get('/about_us', function () {
-    return view('news_web.about_us');
+    $categories=AddCategory::all();
+   
+    return View('news_web.about_us', compact(['categories']));
 });
 Route::get('/anchor_profile', function () {
-    return view('news_web.anchor_profile');
+    $categories=AddCategory::all();
+    return View('news_web.anchor_profile', compact(['categories']));
+    
 });
 Route::get('/privacy_policy', function () {
-    return view('news_web.privacy_policy');
+    $categories=AddCategory::all();
+    return View('news_web.privacy_policy', compact(['categories']));
+    
 });
 Route::get('/terms_conditions', function () {
-    return view('news_web.terms_conditions');
+    $categories=AddCategory::all();
+    return View('news_web.terms_conditions', compact(['categories']));
+   
 });
 Route::get('/advertise_with_us', function () {
-    return view('news_web.advertise_with_us');
+    $categories=AddCategory::all();
+    return View('news_web.advertise_with_us', compact(['categories']));
+    
+});
+Route::get('/contact_us', function () {
+    $categories=AddCategory::all();
+    return View('news_web.contact_us', compact(['categories']));
+    
+});
+Route::get('/feedback', function () {
+    $blogs=AddBlog::orderBy('created_at','desc')->take(4)->get();
+    $categories=AddCategory::all();
+    return View('news_web.feedback', compact(['categories','blogs']));
+    
 });
 
 
 //newsfetch
 Route::get('/index','News\NewsFetchController@header');
 Route::post('/subscriber', 'News\NewsFetchController@subscribe');
-Route::get('/{category_url}', 'News\NewsFetchController@category');
-Route::get('/{blog_url}', 'News\NewsFetchController@blog');
+Route::post('/advertise', 'News\NewsFetchController@advertise');
+Route::post('/feedback', 'News\NewsFetchController@feedback');
+Route::get('/category/{category_url}', 'News\NewsFetchController@category');
+Route::get('/blogs/{blog_url}', 'News\NewsFetchController@blog');
 
 //ManagerPanel
 Route::get('/ManagerLogin/viewlogin','Manager\ManagerLoginContoller@viewlogin');

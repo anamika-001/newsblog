@@ -40,7 +40,7 @@ class AdminController extends Controller
     }
 
     public function adminlogin(Request $request){
-       dd("kkkk");
+  
         $rules = array(
             'email' => 'required|email', 
             'password' => 'required|alphaNum|min:8'

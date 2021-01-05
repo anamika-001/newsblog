@@ -38,12 +38,24 @@
             </div>
         </div>
         <div class="contact-info-form order-1 order-md-2"> <span class="circle one"></span> <span class="circle two"></span>
-            <form action="#" onclick="return false;" autocomplete="off">
+            <form action="{{url('/advertise')}}" method="post">
+            @csrf
+            @if(Session::has('success'))
+                     <div class="alert alert-success">
+                        {{ Session::get('success') }}
+                        @php
+                        Session::forget('success');
+                        @endphp
+                     </div>
+                     @endif
                 <h3 class="title">Advertise With us</h3>
+               
                 <div class="social-input-containers"> <input type="text" name="name" class="input" placeholder="Name" /> </div>
                 <div class="social-input-containers"> <input type="email" name="email" class="input" placeholder="Email" /> </div>
                 <div class="social-input-containers"> <input type="tel" name="phone" class="input" placeholder="Phone" /> </div>
-                <div class="social-input-containers textarea"> <textarea name="message" class="input" placeholder="Message"></textarea> </div> <input type="submit" value="Send" class="btn advertise_btn" />
+                <div class="social-input-containers textarea"> <textarea name="message" class="input" placeholder="Message"></textarea> </div> 
+               
+                <button type="submit" class="btn advertise_btn">Send</button>
             </form>
         </div>
     </div>

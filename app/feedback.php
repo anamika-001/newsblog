@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Subscriber extends Model
+class feedback extends Model
 {
     protected $fillable = [
-        'name', 'email',
+        'name', 'email', 'contact','message',
     ];
 }
