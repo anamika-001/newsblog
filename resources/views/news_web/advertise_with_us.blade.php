@@ -50,10 +50,14 @@
                      @endif
                 <h3 class="title">Advertise With us</h3>
                
-                <div class="social-input-containers"> <input type="text" name="name" class="input" placeholder="Name" /> </div>
-                <div class="social-input-containers"> <input type="email" name="email" class="input" placeholder="Email" /> </div>
-                <div class="social-input-containers"> <input type="tel" name="phone" class="input" placeholder="Phone" /> </div>
-                <div class="social-input-containers textarea"> <textarea name="message" class="input" placeholder="Message"></textarea> </div> 
+                <div class="social-input-containers"> <input type="text" name="name" class="input" placeholder="Name" />
+                <small class="text-white">{{ $errors->first('name') }}</small> </div>
+                <div class="social-input-containers"> <input type="email" name="email" class="input" placeholder="Email" /> 
+                <small class="text-white">{{ $errors->first('email') }}</small></div>
+                <div class="social-input-containers"> <input type="tel" name="phone" class="input" placeholder="Phone" /> 
+                <small class="text-white">{{ $errors->first('phone') }}</small></div>
+                <div class="social-input-containers textarea"> <textarea name="message" class="input" placeholder="Message"></textarea>
+                <small class="text-white">{{ $errors->first('message') }}</small> </div> 
                
                 <button type="submit" class="btn advertise_btn">Send</button>
             </form>

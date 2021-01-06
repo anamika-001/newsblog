@@ -57,9 +57,11 @@ class NewsFetchCOntroller extends Controller
         $categories=AddCategory::all();
         $category=AddCategory::where('category_url',$category_url)->first();
         $categoryId=$category->id;
-        $blog=AddBlog::where('category_id',$category->id)->get();
-      
-        return View('news_web.category', compact(['categories','category','blog']));
+        
+        $blogcategorywise=AddBlog::where('category_id',$category->id)->take(4)->get();
+        $blogs=AddBlog::where('category_id',$category->id)->orderBy('created_at','desc')->take(1)->first();
+        $bloglatest=AddBlog::where('category_id',$category->id)->orderBy('created_at','desc')->get();
+        return View('news_web.category', compact(['categories','blogcategorywise','category','bloglatest','blogs']));
        
     }
     public function blog($blog_url)

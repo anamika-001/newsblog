@@ -31,21 +31,23 @@
             @endif
             <!-- /.box-header -->
             <!-- form start -->
-            <form role="form" action="{{url('Admin/storecategory')}}" class="form-inline">
+            <form role="form" action="{{url('Admin/storecategory')}}" >
               <div class="box-body" >
                 <div class="form-group" style="padding:10px;">
                   <label for="exampleInputEmail1">Category Name</label>
-                  <input type="text" name="title" class="form-control" id="exampleInputEmail1" >
+                  <input type="text" name="title" value="{{old('title')}}" class="form-control" id="exampleInputEmail1" >
+                  <small class="text-danger">{{ $errors->first('title') }}</small>
                 </div>
                
                 <div class="form-group" style="padding:10px;">
                   <label for="exampleInputEmail1">Description</label>
-                  <input type="text" name="description" class="form-control" id="exampleInputEmail1" >
+                  <input type="text" name="description" value="{{old('description')}}"class="form-control" id="exampleInputEmail1" >
                 </div>
 
                 <div class="form-group" style="padding:10px;">
                   <label for="exampleInputEmail1">Category Url</label>
-                  <input type="text" name="category_url" class="form-control" id="exampleInputEmail1" >
+                  <input type="text" name="category_url" value="{{old('category_url')}}" class="form-control" id="exampleInputEmail1" >
+                  <small class="text-danger">{{ $errors->first('category_url') }}</small>
                 </div>
                </div>
               <!-- /.box-body -->

@@ -26,16 +26,19 @@
             </div>
             @endif
         <div class="form-group has-feedback">
-            <input type="text" class="form-control" name="name" placeholder="Manager name">
+            <input type="text" class="form-control" value="{{old('name')}}" name="name" placeholder="Manager name">
             <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+            <small class="text-danger">{{ $errors->first('name') }}</small>
         </div>
         <div class="form-group has-feedback">
-            <input type="email" class="form-control" name="email" placeholder="Email">
+            <input type="email" class="form-control" value="{{old('email')}}" name="email" placeholder="Email">
             <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+            <small class="text-danger">{{ $errors->first('email') }}</small>
         </div>
         <div class="form-group has-feedback">
-            <input type="password" class="form-control" name="password" placeholder="Password">
+            <input type="password" class="form-control" value="{{old('password')}}" name="password" placeholder="Password">
             <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+            <small class="text-danger">{{ $errors->first('password') }}</small>
         </div>
         <div class="row">
             <!-- /.col -->

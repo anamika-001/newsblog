@@ -31,12 +31,13 @@
             @endif
             <!-- /.box-header -->
             <!-- form start -->
-            <form role="form" metod="Post" action="{{action('Admin\CategoryController@update',[$categories->id])}}" class="form-inline">
+            <form role="form" metod="Post" action="{{action('Admin\CategoryController@update',[$categories->id])}}">
            
               <div class="box-body" >
                 <div class="form-group" style="padding:10px;">
                   <label for="exampleInputEmail1">Category Name</label>
                   <input type="text" name="title" value="{{$categories->title}}" class="form-control" id="exampleInputEmail1" >
+                  <small class="text-danger">{{ $errors->first('title') }}</small>
                 </div>
                
                 <div class="form-group" style="padding:10px;">
@@ -46,6 +47,7 @@
                 <div class="form-group" style="padding:10px;">
                   <label for="exampleInputEmail1">Category Url</label>
                   <input type="text" name="category_url" class="form-control" id="exampleInputEmail1" >
+                  <small class="text-danger">{{ $errors->first('category_url') }}</small>
                 </div>
                </div>
                

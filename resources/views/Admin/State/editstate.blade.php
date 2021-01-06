@@ -36,7 +36,8 @@
               <div class="box-body" >
                 <div class="form-group" style="padding:10px;">
                   <label for="exampleInputEmail1">State Name</label>
-                  <input type="text" value="{{$details->state_name}}" name="state_name" class="form-control" id="exampleInputEmail1" >>
+                  <input type="text" value="{{$details->state_name}}" name="state_name" class="form-control" id="exampleInputEmail1" >
+                  <small class="text-danger">{{ $errors->first('state_name') }}</small>
                 </div>
                
                 <div class="form-group" style="padding:10px;">

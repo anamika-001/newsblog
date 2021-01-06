@@ -33,24 +33,28 @@
                         <label for="inputEmail3" class="col-sm-4 col-form-label feedback_label">Name</label>
                         <div class="col-sm-8">
                            <input type="text" class="form-control" id="inputEmail3" name="name" placeholder="Your Name">
+                           <small class="text-danger">{{ $errors->first('name') }}</small>
                         </div>
                      </div>
                      <div class="form-group row">
                         <label for="inputEmail3" class="col-sm-4 col-form-label feedback_label">Email</label>
                         <div class="col-sm-8">
                            <input type="email" class="form-control" id="inputEmail3" name="email" placeholder="Your Email Address">
+                           <small class="text-danger">{{ $errors->first('email') }}</small>
                         </div>
                      </div>
                      <div class="form-group row">
                         <label for="inputEmail3" class="col-sm-4 col-form-label feedback_label">Contact Number</label>
                         <div class="col-sm-8">
                            <input type="number" class="form-control" id="inputEmail3" name="contact" placeholder="Your Contact Number">
+                           <small class="text-danger">{{ $errors->first('contact') }}</small>
                         </div>
                      </div>
                      <div class="form-group row">
                         <label for="inputEmail3" class="col-sm-4 col-form-label feedback_label">Feedback</label>
                         <div class="col-sm-8">
                            <textarea class="form-control" id="inputEmail3" name="message" placeholder="Your Feedback"></textarea>
+                           <small class="text-danger">{{ $errors->first('message') }}</small>
                         </div>
                      </div>
                      

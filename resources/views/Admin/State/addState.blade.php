@@ -35,12 +35,13 @@
               <div class="box-body" >
                 <div class="form-group" style="padding:10px;">
                   <label for="exampleInputEmail1">State Name</label>
-                  <input type="text" name="state_name" class="form-control" id="exampleInputEmail1" >
+                  <input type="text" name="state_name" value="{{old('state_name')}}" class="form-control" id="exampleInputEmail1" >
+                  <small class="text-danger">{{ $errors->first('state_name') }}</small>
                 </div>
                
                 <div class="form-group" style="padding:10px;">
                   <label for="exampleInputEmail1">Description</label>
-                  <input type="text" name="description" class="form-control" id="exampleInputEmail1" >
+                  <input type="text" name="description" value="{{old('description')}}" class="form-control" id="exampleInputEmail1" >
                 </div>
                </div>
               <!-- /.box-body -->

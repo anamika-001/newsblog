@@ -26,19 +26,23 @@ class BlogController extends Controller
    
     public function store(Request $request)
     { 
-        // $this->validate($request,
-        // [
-        // 'category_id'=>'required',
-        // 'state_id'=>'required',
-        // 'blog_url'=>'required',
-        // 'page_title'=>'required',
-        // 'page_meta_description'=>'required',
-        // 'page_description'=>'required',
-        // 'keywords'=>'required',
-        // 'blog_title'=>'required',
-        // 'blog_description'=>'required',
-        
-        // ]);
+        $this->validate($request,
+        [
+        'category_id'=>'required',
+        'state_id'=>'required',
+        'blog_url'=>'required',
+        'page_title'=>'required',
+        'page_meta_description'=>'required',
+        'page_description'=>'required',
+        'page_keywords'=>'required',
+        'blog_title'=>'required',
+        'blog_description'=>'required',
+        'highlight1'=>'required',
+        'highlight2'=>'required',
+        'highlight3'=>'required',
+        'highlight4'=>'required',
+        'blog_image' => 'nullable|mimes:jpeg,bmp,png,jpg'
+        ]);
         $filename=$_FILES['blog_image']['name'];
         if($request->hasfile('blog_image')){
         $filename=$_FILES['blog_image']['name'];
@@ -62,6 +66,7 @@ class BlogController extends Controller
         $blog->highlight2=$request->highlight2;
         $blog->highlight3=$request->highlight3;
         $blog->highlight4=$request->highlight4;
+        
         $blog->blog_image=$filename??''; 
         $blog->saved_image= $imageName??'';
         $blog->posted_by=$request->posted_by;
@@ -102,6 +107,10 @@ class BlogController extends Controller
             'blog_title' => 'required',
             'blog_image' => 'required',
             'posted_by' => 'required',
+            'highlight1'=>'required',
+            'highlight2'=>'required',
+            'highlight3'=>'required',
+            'highlight4'=>'required',
             'blog_image' => 'nullable|mimes:jpeg,bmp,png,jpg'
         ]);
 

@@ -1,7 +1,9 @@
 @extends('Admin.adminpanel')
 
 @section('content')
-<table class="table">
+<table class="table" style="display: block;
+    overflow-x: auto;
+   ">
 @if(Session::has('success'))
             <div class="alert alert-success">
                 {{ Session::get('success') }}
@@ -22,6 +24,10 @@
       <th scope="col">Page Keywords</th>
       <th scope="col">Blog Title</th>
       <th scope="col">Blog Description</th>
+      <th scope="col">highlight1</th>
+      <th scope="col">highlight2</th>
+      <th scope="col">highlight3</th>
+      <th scope="col">highlight4</th>
       <th scope="col">Blog Image</th>
       <th scope="col">Posted By</th>
       
@@ -42,6 +48,10 @@
       <td scope="row">{{$blog->page_keywords}}</td>
       <td scope="row">{{$blog->blog_title}}</td>
       <td scope="row">{{$blog->blog_description}}</td>
+      <td scope="row">{{$blog->highlight1}}</td>
+      <td scope="row">{{$blog->highlight2}}</td>
+      <td scope="row">{{$blog->highlight3}}</td>
+      <td scope="row">{{$blog->highlight4}}</td>
       <td scope="row">{{$blog->blog_image}}</td>
       <td scope="row">{{$blog->posted_by}}</td>
       

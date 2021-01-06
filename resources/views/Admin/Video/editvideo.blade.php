@@ -36,11 +36,13 @@
                 <div class="form-group" style="padding:10px;">
                   <label for="exampleInputEmail1">Video Title</label>
                   <input type="text" value="{{$videos->Video_title}}" name="video_title" class="form-control" id="exampleInputEmail1">
+                  <small class="text-danger">{{ $errors->first('video_title') }}</small>
                 </div>
                
                 <div class="form-group" style="padding:10px;">
                   <label for="exampleInputEmail1">Video Link</label>
                   <input type="text" value="{{$videos->Video_link}}" name="video_link" class="form-control" id="exampleInputEmail1">
+                  <small class="text-danger">{{ $errors->first('Video_link') }}</small>
                 </div>
                </div>
               <!-- /.box-body -->

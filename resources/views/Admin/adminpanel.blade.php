@@ -119,7 +119,7 @@
             <li><a href="{{url('Admin/viewcategory')}}"><i class="fa fa-circle-o"></i> View Category</a></li>
           </ul>
         </li>
-        <li class="treeview active">
+        <!-- <li class="treeview active">
           <a href="#">
             <i class="fa fa-table"></i> <span>State</span>
             <span class="pull-right-container">
@@ -130,7 +130,7 @@
             <li><a href="{{url('Admin/addstate')}}"><i class="fa fa-circle-o"></i> Add State</a></li>
             <li><a href="{{url('Admin/viewstate')}}"><i class="fa fa-circle-o"></i> View state</a></li>
           </ul>
-        </li>
+        </li> -->
         <li class="treeview active">
           <a href="#">
             <i class="fa fa-table"></i> <span>Blogs</span>

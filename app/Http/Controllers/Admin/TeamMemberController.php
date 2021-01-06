@@ -39,12 +39,14 @@ class TeamMemberController extends Controller
      */
     public function store(Request $request)
     {
-        $validator=Validator::make($request->input(),[
+        $this->validate($request,
+        [
             'name'=>'required',
             'email'=>'required',
             'password'=>'required|min:5'
-
+        
         ]);
+        
 
         if($validator->fails()){
             return redirect()->back()->with('errors','field is required');

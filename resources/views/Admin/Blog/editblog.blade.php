@@ -55,41 +55,77 @@
                   <br>
                   <div class="form-group">
                     <label for="exampleInputEmail1">Blog Url</label>
-                    <input type="text" name="blog_url" class="form-control" id="exampleInputEmail1" >
+                    <input type="text" name="blog_url" value="{{$blogs->blog_url}}" class="form-control" id="exampleInputEmail1" >
+                    <small class="text-danger">{{ $errors->first('blog_url') }}</small>
                   </div>
                   <div class="form-group">
                     <label for="exampleInputEmail1">Page Title</label>
                     <input type="text" value="{{$blogs->page_title}}" name="page_title" class="form-control" id="exampleInputEmail1" >
+                    <small class="text-danger">{{ $errors->first('page_title') }}</small>
+
                   </div>
                   
                   <div class="form-group">
                     <label for="exampleInputEmail1">Page Description</label>
-                    <textarea type="text" value="{{$blogs->page_description}}" name="page_description" class="form-control" id="exampleInputEmail1" ></textarea>
+                    <textarea type="text" name="page_description" class="form-control" id="exampleInputEmail1" >{{$blogs->page_description}}</textarea>
+                    <small class="text-danger">{{ $errors->first('page_description') }}</small>
+
                   </div>
                   <div class="form-group">
                     <label for="exampleInputEmail1">Page Meta Description</label>
-                    <textarea type="text" value="{{$blogs->page_meta_description}}" name="page_meta_description" class="form-control" id="exampleInputEmail1" ></textarea>
+                    <textarea type="text" name="page_meta_description" class="form-control" id="exampleInputEmail1" >{{$blogs->page_meta_description}}</textarea>
+                    <small class="text-danger">{{ $errors->first('page_meta_description') }}</small>
+
                   </div>
                   <div class="form-group">
                     <label for="exampleInputEmail1">Page Keywords</label>
                     <input type="text" value="{{$blogs->page_title}}" name="page_keywords" class="form-control" id="exampleInputEmail1" >
+                    <small class="text-danger">{{ $errors->first('page_keywords') }}</small>
+
                   </div>
                   
                   <div class="form-group">
                     <label for="exampleInputEmail1">Blog Title</label>
                     <input type="text" value="{{$blogs->blog_title}}" name="blog_title" class="form-control" id="exampleInputEmail1" >
+                    <small class="text-danger">{{ $errors->first('blog_title') }}</small>
+
                   </div>
                   <div class="form-group">
                     <label for="exampleInputEmail1">Blog Description</label>
-                    <textarea type="text" value="{{$blogs->blog_description}}" name="blog_description" class="form-control" id="exampleInputEmail1" ></textarea>
+                    <textarea type="text" name="blog_description" class="form-control" id="exampleInputEmail1" >{{$blogs->blog_description}}</textarea>
+                    <small class="text-danger">{{ $errors->first('blog_description') }}</small>
+
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">highlight 1</label>
+                    <input  type="text" name="highlight1"  value="{{$blogs->highlight1}}" class="form-control" id="exampleInputEmail1" > 
+                    <small class="text-danger">{{ $errors->first('highlight1') }}</small>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">highlight 2</label>
+                    <input  type="text" name="highlight2"  value="{{$blogs->highlight2}}" class="form-control" id="exampleInputEmail1" > 
+                    <small class="text-danger">{{ $errors->first('highlight2') }}</small>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">highlight 3</label>
+                    <input  type="text" name="highlight3"  value="{{$blogs->highlight3}}" class="form-control" id="exampleInputEmail1" >
+                    <small class="text-danger">{{ $errors->first('highlight3') }}</small>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">highlight 4</label>
+                    <input  type="text" name="highlight4"  value="{{$blogs->highlight4}}" class="form-control" id="exampleInputEmail1" >
+                    <small class="text-danger">{{ $errors->first('highlight4') }}</small>
                   </div>
                   <div class="form-group">
                     <label for="exampleInputPassword1">Blog Posted By</label>
-                    <input type="text" value="{{$blogs->posted_by}}" name="posted_by" class="form-control" id="exampleInputPassword1" > 
+                    <input type="text" value="{{$blogs->posted_by}}"  name="posted_by" class="form-control" id="exampleInputPassword1" > 
+                    <small class="text-danger">{{ $errors->first('highlight1') }}</small>
+             
                                    </div>
                   <div class="form-group">
                     <label for="exampleInputFile">Blog Image</label>
                     <input type="file" src="{{asset($blogs->blog_image)}}" name="blog_image" id="exampleInputFile">
+                    <small class="text-danger">{{ $errors->first('blog_image') }}</small>
                   </div>
                   <div class="box-footer">
                     <button type="submit" class="btn btn-primary">Submit</button>

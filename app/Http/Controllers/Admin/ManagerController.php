@@ -38,16 +38,15 @@ class ManagerController extends Controller
      */
     public function store(Request $request)
     {
-        $validator=Validator::make($request->input(),[
+      
+        $this->validate($request,
+        [
             'name'=>'required',
             'email'=>'required',
             'password'=>'required|min:5'
-
+        
         ]);
-
-        if($validator->fails()){
-            return redirect()->back()->with('errors','field is required');
-        }else{
+        
             $user =new User();
             $user->name=$request->name;
             $user->email=$request->email;
@@ -57,7 +56,7 @@ class ManagerController extends Controller
 
             return redirect()->back()->with('success','Manager added successfully.');
 
-        }
+        
     }
 
     /**

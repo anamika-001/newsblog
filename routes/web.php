@@ -4,16 +4,8 @@ use App\Http\Controllers\Admin\StateController;
 use App\Http\Controllers\Admin\BlogController;
 use App\AddCategory;
 use App\AddBlog;
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+
+//newsfetch footer
 Route::get('/SubAdmin/viewlogin','SubAdmin\SubadminController@viewlogin');
 
 Route::get('/about_us', function () {
@@ -129,15 +121,5 @@ Route::group(['middleware' => 'auth'], function () {
 
  });
 
-
- 
-//  Route::group(['middleware' => 'subadmin'], function () {
-//    //ManagerPanel
-
-
-//  });
 Auth::routes();
-
-
-
 Route::get('/home', 'HomeController@index')->name('home');

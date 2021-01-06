@@ -18,7 +18,7 @@ class CategoryController extends Controller
         
         $this->validate($request,
         [
-        'title'=>'required',
+        'title'=>'required|max:255',
         'category_url'=>'required',
         ]);
 
@@ -56,7 +56,11 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
+        $this->validate($request,
+        [
+        'title'=>'required|max:255',
+        'category_url'=>'required',
+        ]);
         AddCategory::where('id', '=', $id)->update([
         'title' => $request->title??'',
         'description' => $request->description??'',

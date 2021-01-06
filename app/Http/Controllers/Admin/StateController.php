@@ -44,7 +44,12 @@ class StateController extends Controller
 
     public function update(Request $request, $id)
     {
+        $this->validate($request,
+        [
+        'state_name'=>'required',
         
+        ]);
+
         AddState::where('id', '=', $id)->update([
             'state_name' => $request->state_name??'',
             'description' => $request->description??''

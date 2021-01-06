@@ -315,11 +315,14 @@
                <h6>Get our best delivered directly to your inbox</h6>
                <form action="{{url('/subscriber')}}" method="post">
                   @csrf
+                  
                   <div class="form-group">
                      <input type="text" class="form-control" name="name" placeholder="Enter Name">
+                     <small class="text-white">{{ $errors->first('name') }}</small>
                   </div>
                   <div class="form-group">
                      <input type="email" class="form-control" name="email" placeholder="Enter Email">
+                     <small class="text-white">{{ $errors->first('email') }}</small>
                   </div>
                   <button type="submit" class="btn">Subscribe</button>
                </form>

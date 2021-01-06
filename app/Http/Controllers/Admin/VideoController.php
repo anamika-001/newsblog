@@ -18,7 +18,7 @@ class VideoController extends Controller
         $this->validate($request,
         [
         'video_title'=>'required',
-       
+        'video_link'=>'required',
         ]);
         
         $addvideo = new Video();
@@ -53,7 +53,11 @@ class VideoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
+        $this->validate($request,
+        [
+        'video_title'=>'required',
+        'Video_link'=>'required',
+        ]); 
        Video::where('id', '=', $id)->update([
         'Video_title' => $request->video_title??'',
         'Video_link' => $request->video_link??''
